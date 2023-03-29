@@ -5,6 +5,7 @@
 //  Created by 서승우 on 2023/03/19.
 //
 
+import FirebaseAuth
 import Foundation
 
 struct HomeModel {
@@ -50,6 +51,19 @@ struct HomeModel {
                 // rx쓸 때는 쉬운ㄷ 
             }
         }
+    }
+
+
+
+    var handle: AuthStateDidChangeListenerHandle?
+    let firebaseAuthManager = FirebaseAuthManager()
+
+    mutating func addStateDidChangeListener() {
+        handle = firebaseAuthManager.addStateDidChangeListener()
+    }
+
+    func removeStateDidChangeListener() {
+        firebaseAuthManager.removeStateDidChangeListener(handle: handle)
     }
 
 }

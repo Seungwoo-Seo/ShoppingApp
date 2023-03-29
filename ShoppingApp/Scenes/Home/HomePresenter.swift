@@ -88,6 +88,11 @@ final class HomePresenter: NSObject {
 
     func viewWillAppear() {
         viewController?.setupTabBar()
+        model.addStateDidChangeListener()
+    }
+
+    func viewWillDisappear() {
+        model.removeStateDidChangeListener()
     }
 
     func didTapSearchBarButtonItem() {
