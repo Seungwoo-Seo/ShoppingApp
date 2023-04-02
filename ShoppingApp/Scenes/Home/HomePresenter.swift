@@ -19,6 +19,7 @@ protocol HomeViewProtocol: AnyObject {
 final class HomePresenter: NSObject {
     private weak var viewController: HomeViewProtocol?
     private let clothesSearchManager: ClothesSearchManagerProtocol?
+    private let userDefaultsManager: UserDefaultsManagerProtocl?
 
     private var model = HomeModel()
 
@@ -46,10 +47,12 @@ final class HomePresenter: NSObject {
 
     init(
         viewController: HomeViewProtocol?,
-        clothesSearchManager: ClothesSearchManagerProtocol? = ClothesSearchManager()
+        clothesSearchManager: ClothesSearchManagerProtocol? = ClothesSearchManager(),
+        userDefaultsManager: UserDefaultsManagerProtocl? = UserDefaultsManager()
     ) {
         self.viewController = viewController
         self.clothesSearchManager = clothesSearchManager
+        self.userDefaultsManager = userDefaultsManager
     }
 
 
@@ -290,6 +293,9 @@ extension HomePresenter: UICollectionViewDelegate {
         default:
             fatalError("뭐냐 넌")
         }
+
+        // 상품 선택하면 UserDefaults에 해당 상품 저장
+        userDefaultsManager?.addClothes(clothes)
 
         viewController?.presentToDetailViewController(with: clothes)
     }

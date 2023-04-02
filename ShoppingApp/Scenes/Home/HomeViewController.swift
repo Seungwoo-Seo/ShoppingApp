@@ -166,7 +166,8 @@ extension HomeViewController: HomeViewProtocol {
             heightDimension: .fractionalHeight(1.0)
         )
 
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize
+        )
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),

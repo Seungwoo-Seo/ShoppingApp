@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Clothes: Decodable {
+struct Clothes: Codable {
     /// 상품 이름
     let title: String
     /// 상품 정보 URL

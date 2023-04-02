@@ -10,22 +10,31 @@ import UIKit
 enum TabBarItem: CaseIterable {
     case home
     case liked
-    case account
+    case my
 
 
     var title: String {
         switch self {
         case .home: return "홈"
         case .liked: return "찜"
-        case .account: return "MY"
+        case .my: return "MY"
         }
     }
 
     var icon: (image: UIImage?, selectedImage: UIImage?) {
         switch self {
-        case .home: return (UIImage(systemName: "house"), UIImage(systemName: "house.fill"))
-        case .liked: return (UIImage(systemName: "heart"), UIImage(systemName: "heart.fill"))
-        case .account: return (UIImage(systemName: "person"), UIImage(systemName: "person.fill"))
+        case .home: return (
+            UIImage(systemName: "house"),
+            UIImage(systemName: "house.fill")
+        )
+        case .liked: return (
+            UIImage(systemName: "heart"),
+            UIImage(systemName: "heart.fill")
+        )
+        case .my: return (
+            UIImage(systemName: "person"),
+            UIImage(systemName: "person.fill")
+        )
         }
     }
 
@@ -37,8 +46,8 @@ enum TabBarItem: CaseIterable {
             )
         case .liked:
             return UIViewController()
-        case .account:
-            return UINavigationController(   rootViewController: AccountViewController()
+        case .my:
+            return UINavigationController(   rootViewController: MyViewController()
             )
         }
     }
