@@ -8,6 +8,10 @@
 import SnapKit
 import UIKit
 
+protocol MyCollectionViewButtonDelegate: AnyObject {
+    func didTapAccessoryButton()
+}
+
 final class MyCollectionViewDetailHeader: UICollectionReusableView {
     static let identifier = "MyCollectionViewDetailHeader"
 
@@ -43,14 +47,17 @@ final class MyCollectionViewDetailHeader: UICollectionReusableView {
         return button
     }()
 
+    private weak var delegate: MyCollectionViewButtonDelegate?
+
     override func layoutSubviews() {
         super.layoutSubviews()
 
         setupLayout()
     }
 
-    func configure(with title: String) {
+    func configure(with title: String, delegate: MyCollectionViewButtonDelegate?) {
         titleLabel.text = title
+        self.delegate = delegate
     }
 
 }
@@ -79,7 +86,7 @@ private extension MyCollectionViewDetailHeader {
 
     @objc
     func didTapAccessoryButton() {
-
+        delegate?.didTapAccessoryButton()
     }
 
 }

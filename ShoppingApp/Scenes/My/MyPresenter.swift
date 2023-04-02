@@ -12,6 +12,7 @@ protocol MyViewProtocol: AnyObject {
     func setupLayout()
     func pushToAccountViewController()
     func reloadCollectionView()
+    func pushToRecentlyViewedViewController()
 }
 
 final class MyPresenter: NSObject {
@@ -153,7 +154,10 @@ extension MyPresenter: UICollectionViewDataSource {
                     for: indexPath
                 ) as? MyCollectionViewDetailHeader
 
-                headerView?.configure(with: "최근 본 상품")
+                headerView?.configure(
+                    with: "최근 본 상품",
+                    delegate: self
+                )
 
                 return headerView ?? UICollectionReusableView()
             default:
@@ -180,6 +184,14 @@ extension MyPresenter: UICollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
+    }
+
+}
+
+extension MyPresenter: MyCollectionViewButtonDelegate {
+
+    func didTapAccessoryButton() {
+        viewController?.pushToRecentlyViewedViewController()
     }
 
 }
