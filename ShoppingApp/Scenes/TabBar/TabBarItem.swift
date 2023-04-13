@@ -10,6 +10,7 @@ import UIKit
 enum TabBarItem: String, CaseIterable {
     case 홈
     case 스타일추천
+    case 카테고리
     case 찜
     case MY
 
@@ -29,6 +30,10 @@ enum TabBarItem: String, CaseIterable {
         case .스타일추천: return (
             UIImage(systemName: "books.vertical"),
             UIImage(systemName: "books.vertical.fill")
+        )
+        case .카테고리: return (
+            UIImage(systemName: "text.justify"),
+            UIImage(systemName: "text.justify")
         )
         case .찜: return (
             UIImage(systemName: "heart"),
@@ -50,6 +55,10 @@ enum TabBarItem: String, CaseIterable {
         case .스타일추천:
             return UINavigationController(
                 rootViewController: StyleRecommendationViewController()
+            )
+        case .카테고리:
+            return UINavigationController(
+                rootViewController: CategoryViewController()
             )
         case .찜:
             return UIViewController()
