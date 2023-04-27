@@ -16,9 +16,7 @@ enum TabBarItem: String, CaseIterable {
 
 
     var title: String {
-        switch self {
-        default: return rawValue
-        }
+        return rawValue
     }
 
     var icon: (image: UIImage?, selectedImage: UIImage?) {
@@ -61,9 +59,12 @@ enum TabBarItem: String, CaseIterable {
                 rootViewController: CategoryViewController()
             )
         case .찜:
-            return UIViewController()
+            return UINavigationController(
+                rootViewController: LikedViewController()
+            )
         case .MY:
-            return UINavigationController(   rootViewController: MyViewController()
+            return UINavigationController(
+                rootViewController: MyViewController()
             )
         }
     }

@@ -9,6 +9,6 @@ import Foundation
 
 struct ShoppingResponseModel: Decodable {
 
-    var items: [Clothes] = []
+    var items: [Goods] = []
 
 }

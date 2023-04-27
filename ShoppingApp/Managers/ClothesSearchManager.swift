@@ -13,14 +13,14 @@ protocol ClothesSearchManagerProtocol {
 
     func request(
         with query: String,
-        completionHandler: @escaping ([Clothes]) -> ()
+        completionHandler: @escaping ([Goods]) -> ()
     )
 
     func request(
         with query: String,
         display: Int,
         start: Int,
-        completionHandler: @escaping ([Clothes]) -> ()
+        completionHandler: @escaping ([Goods]) -> ()
     )
 }
 
@@ -29,7 +29,7 @@ struct ClothesSearchManager: ClothesSearchManagerProtocol {
 
     func request(
         with query: String,
-        completionHandler: @escaping ([Clothes]) -> ()
+        completionHandler: @escaping ([Goods]) -> ()
     ) {
         guard let url = URL(string: "https://openapi.naver.com/v1/search/shop.json") else {return}
         let parameters = ShoppingRequestModel(
@@ -63,7 +63,7 @@ struct ClothesSearchManager: ClothesSearchManagerProtocol {
         with query: String,
         display: Int,
         start: Int,
-        completionHandler: @escaping ([Clothes]) -> ()
+        completionHandler: @escaping ([Goods]) -> ()
     ) {
         guard let url = URL(string: "https://openapi.naver.com/v1/search/shop.json") else {return}
         let parameters = ShoppingRequestModel(
