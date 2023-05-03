@@ -24,7 +24,10 @@ final class HomeCollectionViewBuyTodayCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16.0
         imageView.clipsToBounds = true
-        imageView.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        imageView.setContentCompressionResistancePriority(
+            .defaultLow,
+            for: .vertical
+        )
 
         return imageView
     }()
@@ -59,7 +62,7 @@ final class HomeCollectionViewBuyTodayCell: UICollectionViewCell {
         return button
     }()
 
-    private lazy var clothesInfoStackView: GoodsInfoStackView = {
+    private lazy var goodsInfoStackView: GoodsInfoStackView = {
         let stackView = GoodsInfoStackView(frame: .zero)
 
         return stackView
@@ -71,13 +74,20 @@ final class HomeCollectionViewBuyTodayCell: UICollectionViewCell {
         configureHierarchy()
     }
 
+    var task: DownloadTask?
+
     func configure(with goods: Goods?) {
         guard let goods = goods else {return}
-        thumnailImageView.kf.setImage(
+        task = thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
-        clothesInfoStackView.configure(with: goods)
+        goodsInfoStackView.configure(with: goods)
+    }
+
+    func cancelDownloadTask() {
+        task?.cancel()
+//        thumnailImageView.kf.cancelDownloadTask()
     }
 
 }
@@ -88,7 +98,7 @@ private extension HomeCollectionViewBuyTodayCell {
         [
             thumnailImageViewShadowView,
             likedButton,
-            clothesInfoStackView
+            goodsInfoStackView
         ].forEach { contentView.addSubview($0) }
 
         thumnailImageViewShadowView.addSubview(thumnailImageView)
@@ -108,7 +118,7 @@ private extension HomeCollectionViewBuyTodayCell {
             make.bottom.equalTo(thumnailImageViewShadowView.snp.bottom)
         }
 
-        clothesInfoStackView.snp.makeConstraints { make in
+        goodsInfoStackView.snp.makeConstraints { make in
             make.top.equalTo(thumnailImageViewShadowView.snp.bottom).offset(8.0)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()

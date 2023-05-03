@@ -8,17 +8,22 @@
 import UIKit
 
 protocol StyleRecommendationViewProtocol: AnyObject {
-    func setupNavigationBar()
-    func setupLayout()
+    func configureNavigationBar()
+    func configureCollectionView()
+    func configureHierarchy()
     func reloadCollectionView()
     func endRefreshing()
+
+    func createLayout() -> UICollectionViewLayout
+    func createTwoColumnSection() -> NSCollectionLayoutSection
+    func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem
 }
 
 final class StyleRecommendationPresenter: NSObject {
     private weak var viewController: StyleRecommendationViewProtocol?
-    private let clothesSearchManager: ClothesSearchManagerProtocol?
+    private var goodsSearchManager: GoodsSearchManagerProtocol?
 
-    private var styleRecommendationClothesList: [Goods] = []
+    private var goodsList: [Goods] = []
 
     // 지금까지 request 된, 가지고 있는 보여주고 있는 page가 어디인지
     private var currentPage = 0
@@ -28,17 +33,32 @@ final class StyleRecommendationPresenter: NSObject {
 
     init(
         viewController: StyleRecommendationViewProtocol?,
-        clothesSearchManager: ClothesSearchManagerProtocol? = ClothesSearchManager()
+        goodsSearchManager: GoodsSearchManagerProtocol? = GoodsSearchManager()
     ) {
         self.viewController = viewController
-        self.clothesSearchManager = clothesSearchManager
+        self.goodsSearchManager = goodsSearchManager
     }
 
     func viewDidLoad() {
-        viewController?.setupNavigationBar()
-        viewController?.setupLayout()
+        viewController?.configureNavigationBar()
+        viewController?.configureCollectionView()
+        viewController?.configureHierarchy()
 
         requestNewList(isNeededToReset: false)
+    }
+
+    func createLayout(
+        sectionIndex: Int,
+        layoutEnvironment: NSCollectionLayoutEnvironment
+    ) -> NSCollectionLayoutSection? {
+        guard let sectionLayoutKind = StyleRecommendationCollectionViewSectionKind(
+            rawValue: sectionIndex
+        ) else { return nil }
+
+        switch sectionLayoutKind {
+        case .당신을위한추천:
+            return viewController?.createTwoColumnSection()
+        }
     }
 
     func didValueChangedRefreshControl() {
@@ -49,25 +69,29 @@ final class StyleRecommendationPresenter: NSObject {
 
 extension StyleRecommendationPresenter: UICollectionViewDataSource {
 
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return styleRecommendationClothesList.count
+    func collectionView(
+        _ collectionView: UICollectionView,
+        numberOfItemsInSection section: Int
+    ) -> Int {
+        return goodsList.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
             withReuseIdentifier: StyleRecommendationCollectionViewCell.identifier,
             for: indexPath
         ) as? StyleRecommendationCollectionViewCell
 
-        let clothes = styleRecommendationClothesList[indexPath.item]
-        cell?.configure(with: clothes)
+        if !goodsList.isEmpty {
+            let goods = goodsList[indexPath.item]
+            cell?.configure(with: goods)
+        }
 
         return cell ?? UICollectionViewCell()
     }
-
-}
-
-extension StyleRecommendationPresenter: UICollectionViewDelegate {
 
     func collectionView(
         _ collectionView: UICollectionView,
@@ -88,17 +112,28 @@ extension StyleRecommendationPresenter: UICollectionViewDelegate {
             return UICollectionReusableView()
         }
     }
+}
+
+extension StyleRecommendationPresenter: UICollectionViewDataSourcePrefetching {
 
     func collectionView(
         _ collectionView: UICollectionView,
-        willDisplay cell: UICollectionViewCell,
-        forItemAt indexPath: IndexPath
+        prefetchItemsAt indexPaths: [IndexPath]
     ) {
-        let currentRow = indexPath.item
+        guard currentPage != 0 else {return}
 
-        guard (currentRow % display) == display - 4 && (currentRow / display) == (currentPage - 1) else {return}
+        indexPaths.forEach {
+            if ($0.item + 1)/display + 1 == currentPage {
+                requestNewList(isNeededToReset: false)
+            }
+        }
+    }
 
-        requestNewList(isNeededToReset: false)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cancelPrefetchingForItemsAt indexPaths: [IndexPath]
+    ) {
+
     }
 
 }
@@ -107,16 +142,17 @@ private extension StyleRecommendationPresenter {
 
     func requestNewList(isNeededToReset: Bool) {
         if isNeededToReset {
-            styleRecommendationClothesList = []
+            goodsList = []
             currentPage = 0
+            goodsSearchManager?.dataTasksReset()
         }
 
-        clothesSearchManager?.request(
+        goodsSearchManager?.request(
             with: "세트",
             display: display,
             start: (currentPage * display) + 1
         ) { [weak self] results in
-            self?.styleRecommendationClothesList += results
+            self?.goodsList += results
             self?.currentPage += 1
             self?.viewController?.reloadCollectionView()
             self?.viewController?.endRefreshing()

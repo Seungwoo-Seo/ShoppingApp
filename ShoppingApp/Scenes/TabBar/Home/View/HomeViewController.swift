@@ -100,7 +100,7 @@ extension HomeViewController: HomeViewProtocol {
     }
 
     func configureHierarchy() {
-        view.addSubview(collectionView)
+        [collectionView].forEach { view.addSubview($0) }
 
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
@@ -271,7 +271,7 @@ private extension HomeViewController {
         let spacing: CGFloat = 16.0
 
         let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
+            widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1.0)
         )
 

@@ -5,6 +5,7 @@
 //  Created by 서승우 on 2023/03/28.
 //
 
+import Kingfisher
 import SnapKit
 import UIKit
 
@@ -28,12 +29,19 @@ final class HomeCollectionViewSubBannerCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var task: DownloadTask?
+
     func configure(with goods: Goods?) {
         guard let goods = goods else {return}
-        thumnailImageView.kf.setImage(
+        task = thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
+    }
+
+    func cancelDownloadTask() {
+        task?.cancel()
+//        thumnailImageView.kf.cancelDownloadTask()
     }
 
 }

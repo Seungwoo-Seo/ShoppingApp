@@ -65,9 +65,11 @@ final class HomeCollectionViewBrandOfTheWeekCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var task: DownloadTask?
+
     func configure(with goods: Goods?) {
         guard let goods = goods else {return}
-        thumnailImageView.kf.setImage(
+        task = thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
@@ -75,6 +77,11 @@ final class HomeCollectionViewBrandOfTheWeekCell: UICollectionViewCell {
         titleLabel.text = String(
             htmlEncodedString: goods.title
         )
+    }
+
+    func cancelDownloadTask() {
+        task?.cancel()
+//        thumnailImageView.kf.cancelDownloadTask()
     }
 
 }

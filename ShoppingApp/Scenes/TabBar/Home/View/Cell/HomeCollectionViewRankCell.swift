@@ -49,13 +49,20 @@ final class HomeCollectionViewRankCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var task: DownloadTask?
+
     func configure(with goods: Goods?, item: Int) {
         guard let goods = goods else {return}
-        thumnailImageView.kf.setImage(
+        task = thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
         rankLabel.text = "\(item)"
+    }
+
+    func cancelDownloadTask() {
+        task?.cancel()
+//        thumnailImageView.kf.cancelDownloadTask()
     }
 
 }

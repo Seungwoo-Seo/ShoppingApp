@@ -71,13 +71,20 @@ final class HomeCollectionViewNowLookingCell: UICollectionViewCell {
         configureHierarchy()
     }
 
+    var task: DownloadTask?
+
     func configure(with goods: Goods?) {
         guard let goods = goods else {return}
-        thumnailImageView.kf.setImage(
+        task = thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
         clothesInfoStackView.configure(with: goods)
+    }
+
+    func cancelDownloadTask() {
+        task?.cancel()
+//        thumnailImageView.kf.cancelDownloadTask()
     }
 
 }

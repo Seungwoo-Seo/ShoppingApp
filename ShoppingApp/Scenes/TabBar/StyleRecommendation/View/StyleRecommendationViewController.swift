@@ -11,46 +11,66 @@ import UIKit
 final class StyleRecommendationViewController: UIViewController {
     private lazy var presenter = StyleRecommendationPresenter(viewController: self)
 
-    private lazy var cartBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(
+    private var collectionView: UICollectionView!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        presenter.viewDidLoad()
+    }
+
+}
+
+extension StyleRecommendationViewController: UICollectionViewDelegate {
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+
+    }
+
+}
+
+extension StyleRecommendationViewController: StyleRecommendationViewProtocol {
+
+    func configureNavigationBar() {
+        let cartBarButtonItem = UIBarButtonItem(
             image: BarButtonItem.cart.image,
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapCartBarButtonItem)
         )
 
-        return barButtonItem
-    }()
-
-    private lazy var searchBarButtonItem: UIBarButtonItem = {
-        let barButtonItem = UIBarButtonItem(
+        let searchBarButtonItem = UIBarButtonItem(
             image: BarButtonItem.search.image,
             style: .plain,
             target: self,
-            action: nil
+            action: #selector(didTapSearchBarButtonItem)
         )
 
-        return barButtonItem
-    }()
+        navigationItem.title = "스타일 추천"
+        navigationItem.rightBarButtonItems = [
+            cartBarButtonItem,
+            searchBarButtonItem
+        ]
+    }
 
-    private lazy var refreshControl: UIRefreshControl = {
-        let control = UIRefreshControl()
-        control.addTarget(
+    func configureCollectionView() {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(
             self,
             action: #selector(didValueChangedRefreshControl),
             for: .valueChanged
         )
 
-        return control
-    }()
-
-    private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(
+        collectionView = UICollectionView(
             frame: .zero,
             collectionViewLayout: createLayout()
         )
         collectionView.dataSource = presenter
-        collectionView.delegate = presenter
+        collectionView.prefetchDataSource = presenter
+        collectionView.delegate = self
         collectionView.refreshControl = refreshControl
 
         collectionView.register(
@@ -63,44 +83,36 @@ final class StyleRecommendationViewController: UIViewController {
             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
             withReuseIdentifier: StyleRecommendationCollectionViewHeader.identifier
         )
-
-        return collectionView
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        presenter.viewDidLoad()
-    }
-
-    enum SectionLayoutKind: Int {
-        case 당신을위한추천
     }
 
     func createLayout() -> UICollectionViewLayout {
         let layout = UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
-            guard let sectionLayoutKind = SectionLayoutKind(rawValue: sectionIndex) else { return nil }
 
-            switch sectionLayoutKind {
-            case .당신을위한추천:
-                return self?.createTwoColumnSection()
-            }
+            return self?.presenter.createLayout(
+                sectionIndex: sectionIndex,
+                layoutEnvironment: layoutEnvironment
+            )
         }
 
         return layout
     }
 
     func createTwoColumnSection() -> NSCollectionLayoutSection {
+        let contentsInset: CGFloat = 16.0
+        let spacing: CGFloat = 16.0
+
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1.0)
         )
 
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
 
         let groupSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.3)
+            heightDimension: .fractionalHeight(0.35)
         )
 
         let group = NSCollectionLayoutGroup.horizontal(
@@ -108,9 +120,12 @@ final class StyleRecommendationViewController: UIViewController {
             subitem: item,
             count: 2
         )
-        group.interItemSpacing = .fixed(8.0)
+        group.interItemSpacing = .fixed(spacing)
         group.contentInsets = .init(
-            top: 0, leading: 8.0, bottom: 0, trailing: 8.0
+            top: 0,
+            leading: contentsInset,
+            bottom: 0,
+            trailing: contentsInset
         )
 
         let section = NSCollectionLayoutSection(
@@ -139,23 +154,12 @@ final class StyleRecommendationViewController: UIViewController {
         return header
     }
 
-}
-
-extension StyleRecommendationViewController: StyleRecommendationViewProtocol {
-
-    func setupNavigationBar() {
-        navigationItem.title = "스타일 추천"
-        navigationItem.rightBarButtonItems = [
-            cartBarButtonItem,
-            searchBarButtonItem
-        ]
-    }
-
-    func setupLayout() {
+    func configureHierarchy() {
         [collectionView].forEach { view.addSubview($0) }
 
         collectionView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
 
@@ -164,12 +168,22 @@ extension StyleRecommendationViewController: StyleRecommendationViewProtocol {
     }
 
     func endRefreshing() {
-        refreshControl.endRefreshing()
+        collectionView.refreshControl?.endRefreshing()
     }
 
 }
 
 private extension StyleRecommendationViewController {
+
+    @objc
+    func didTapCartBarButtonItem() {
+
+    }
+
+    @objc
+    func didTapSearchBarButtonItem() {
+
+    }
 
     @objc
     func didValueChangedRefreshControl() {

@@ -18,7 +18,7 @@ protocol HomeViewProtocol: AnyObject {
 }
 
 final class HomePresenter: NSObject {
-    private let goodsSearchManager: ClothesSearchManagerProtocol?
+    private let goodsSearchManager: GoodsSearchManagerProtocol?
     private let userDefaultsManager: UserDefaultsManagerProtocl?
 
     private weak var viewController: HomeViewProtocol?
@@ -52,7 +52,7 @@ final class HomePresenter: NSObject {
 
     init(
         viewController: HomeViewProtocol?,
-        goodsSearchManager: ClothesSearchManagerProtocol? = ClothesSearchManager(),
+        goodsSearchManager: GoodsSearchManagerProtocol? = GoodsSearchManager(),
         userDefaultsManager: UserDefaultsManagerProtocl? = UserDefaultsManager()
     ) {
         self.viewController = viewController
