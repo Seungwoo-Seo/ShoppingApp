@@ -13,6 +13,7 @@ protocol ClothesSearchManagerProtocol {
     func request(with query: String, completionHandler: @escaping ([Clothes]) -> ())
 }
 
+// 네이버 쇼핑 API와 통신할 API
 struct ClothesSearchManager: ClothesSearchManagerProtocol {
 
     func request(with query: String, completionHandler: @escaping ([Clothes]) -> ()) {
