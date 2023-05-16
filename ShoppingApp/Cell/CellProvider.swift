@@ -11,7 +11,12 @@ import Foundation
 enum CellProvider {
     typealias Register = (cellClass: AnyClass?, identifier: String)
 
-    case homeCollectionView   // Home Scene에 collectionView
+    /// HomeViewController의 CollectionView Cell
+    case homeCollectionView
+    /// AccountViewController의 TableView Cell
+    case accountTableView
+    /// AccountViewController의 TableView Header, Footer
+    case accountTableViewHeaderFooter
 
     var registers: [Register] {
         switch self {
@@ -29,6 +34,20 @@ enum CellProvider {
                  HomeCollectionViewSubBannerCell.identifier),
                 (HomeCollectionViewOneSecondMyFavoriteCell.self,
                  HomeCollectionViewOneSecondMyFavoriteCell.identifier)
+            ]
+
+        case .accountTableView:
+            return [
+                (AccountTableViewCell.self,
+                AccountTableViewCell.identifier)
+            ]
+
+        case .accountTableViewHeaderFooter:
+            return [
+                (AccountTableViewHeader.self,
+                AccountTableViewHeader.identifier),
+                (AccountTableViewFooter.self,
+                 AccountTableViewFooter.identifier)
             ]
         }
     }

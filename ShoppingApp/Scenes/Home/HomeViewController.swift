@@ -71,6 +71,12 @@ final class HomeViewController: UIViewController {
         presenter.viewWillAppear()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        presenter.viewWillDisappear()
+    }
+
 }
 
 extension HomeViewController: HomeViewProtocol {
