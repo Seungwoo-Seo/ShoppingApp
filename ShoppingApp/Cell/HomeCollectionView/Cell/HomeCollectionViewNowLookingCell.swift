@@ -5,6 +5,7 @@
 //  Created by 서승우 on 2023/03/28.
 //
 
+import Kingfisher
 import SnapKit
 import UIKit
 

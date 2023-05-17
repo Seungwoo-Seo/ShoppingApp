@@ -37,8 +37,21 @@
 		57DAB05029D3462400CF315A /* AccountTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB04F29D3462400CF315A /* AccountTableViewHeader.swift */; };
 		57DAB05229D3472900CF315A /* AccountTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB05129D3472900CF315A /* AccountTableViewFooter.swift */; };
 		57DAB05629D41F4D00CF315A /* AccountTableViewTitleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB05529D41F4D00CF315A /* AccountTableViewTitleData.swift */; };
+		57DAB05B29D47F7D00CF315A /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB05A29D47F7D00CF315A /* MyViewController.swift */; };
+		57DAB05E29D47F9700CF315A /* MyPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB05D29D47F9700CF315A /* MyPresenter.swift */; };
+		57DAB06129D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06029D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift */; };
+		57DAB06329D5A62E00CF315A /* TestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DAB06229D5A62E00CF315A /* TestStoryboard.storyboard */; };
+		57DAB06529D5A87B00CF315A /* MyCollectionViewBannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06429D5A87B00CF315A /* MyCollectionViewBannerCell.swift */; };
+		57DAB06729D5ACF400CF315A /* MyCollectionViewMyShoppingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06629D5ACF400CF315A /* MyCollectionViewMyShoppingCell.swift */; };
+		57DAB06B29D5ED3C00CF315A /* MyDecorationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06A29D5ED3C00CF315A /* MyDecorationView.swift */; };
+		57DAB06D29D5F23D00CF315A /* MyCollectionViewRecentlyViewedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06C29D5F23D00CF315A /* MyCollectionViewRecentlyViewedCell.swift */; };
+		57DAB06F29D5FDAA00CF315A /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB06E29D5FDAA00CF315A /* UserDefaultsManager.swift */; };
+		57DAB07129D6CFDB00CF315A /* MyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DAB07029D6CFDB00CF315A /* MyModel.swift */; };
 		57E61A7629C65617005F4648 /* Clothes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E61A7529C65616005F4648 /* Clothes.swift */; };
 		57E61A7829C65D71005F4648 /* CollectionViewTwoColumnGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57E61A7729C65D71005F4648 /* CollectionViewTwoColumnGridCell.swift */; };
+		57EA028129D9A0A8005DF475 /* MyCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA028029D9A0A8005DF475 /* MyCollectionViewHeader.swift */; };
+		57EA028329D9A0BD005DF475 /* MyCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA028229D9A0BD005DF475 /* MyCollectionViewFooter.swift */; };
+		57EA028529D9D09D005DF475 /* MyCollectionViewDetailHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA028429D9D09D005DF475 /* MyCollectionViewDetailHeader.swift */; };
 		57EE1E8A29C66938001C98EF /* ClothesSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E8929C66938001C98EF /* ClothesSearchManager.swift */; };
 		57EE1E8C29C66C62001C98EF /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E8B29C66C62001C98EF /* HomeModel.swift */; };
 		57EE1E9329C6ACBB001C98EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E9229C6ACBB001C98EF /* SearchViewController.swift */; };
@@ -102,8 +115,21 @@
 		57DAB04F29D3462400CF315A /* AccountTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewHeader.swift; sourceTree = "<group>"; };
 		57DAB05129D3472900CF315A /* AccountTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewFooter.swift; sourceTree = "<group>"; };
 		57DAB05529D41F4D00CF315A /* AccountTableViewTitleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTableViewTitleData.swift; sourceTree = "<group>"; };
+		57DAB05A29D47F7D00CF315A /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		57DAB05D29D47F9700CF315A /* MyPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPresenter.swift; sourceTree = "<group>"; };
+		57DAB06029D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewPointCouponOrderDeliveryCell.swift; sourceTree = "<group>"; };
+		57DAB06229D5A62E00CF315A /* TestStoryboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TestStoryboard.storyboard; sourceTree = "<group>"; };
+		57DAB06429D5A87B00CF315A /* MyCollectionViewBannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewBannerCell.swift; sourceTree = "<group>"; };
+		57DAB06629D5ACF400CF315A /* MyCollectionViewMyShoppingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewMyShoppingCell.swift; sourceTree = "<group>"; };
+		57DAB06A29D5ED3C00CF315A /* MyDecorationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDecorationView.swift; sourceTree = "<group>"; };
+		57DAB06C29D5F23D00CF315A /* MyCollectionViewRecentlyViewedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewRecentlyViewedCell.swift; sourceTree = "<group>"; };
+		57DAB06E29D5FDAA00CF315A /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		57DAB07029D6CFDB00CF315A /* MyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyModel.swift; sourceTree = "<group>"; };
 		57E61A7529C65616005F4648 /* Clothes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clothes.swift; sourceTree = "<group>"; };
 		57E61A7729C65D71005F4648 /* CollectionViewTwoColumnGridCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewTwoColumnGridCell.swift; sourceTree = "<group>"; };
+		57EA028029D9A0A8005DF475 /* MyCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewHeader.swift; sourceTree = "<group>"; };
+		57EA028229D9A0BD005DF475 /* MyCollectionViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewFooter.swift; sourceTree = "<group>"; };
+		57EA028429D9D09D005DF475 /* MyCollectionViewDetailHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionViewDetailHeader.swift; sourceTree = "<group>"; };
 		57EE1E8929C66938001C98EF /* ClothesSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesSearchManager.swift; sourceTree = "<group>"; };
 		57EE1E8B29C66C62001C98EF /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		57EE1E9229C6ACBB001C98EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -180,12 +206,13 @@
 				57CC27F429C649CA00E45637 /* Entities */,
 				57CC27F329C649AF00E45637 /* Managers */,
 				57CC27EC29C6426A00E45637 /* Scenes */,
-				57EE1EAD29CFB788001C98EF /* layout */,
 				57EE1EA029CBE9F2001C98EF /* Cell */,
+				57EE1EAD29CFB788001C98EF /* layout */,
 				57CC27B729C63D7400E45637 /* Assets.xcassets */,
 				57CC27B929C63D7400E45637 /* LaunchScreen.storyboard */,
 				57CC27BC29C63D7400E45637 /* Info.plist */,
 				57DAB03C29D3052000CF315A /* GoogleService-Info.plist */,
+				57DAB06229D5A62E00CF315A /* TestStoryboard.storyboard */,
 			);
 			path = ShoppingApp;
 			sourceTree = "<group>";
@@ -221,10 +248,11 @@
 			isa = PBXGroup;
 			children = (
 				57CC27EE29C6428100E45637 /* TabBar */,
-				57DAB04729D317D200CF315A /* Account */,
 				57CC27EB29C6426400E45637 /* Home */,
 				57EE1E9429C6AD7D001C98EF /* Search */,
 				57EE1E9729C7E25F001C98EF /* Detail */,
+				57DAB05C29D47F8300CF315A /* My */,
+				57DAB04729D317D200CF315A /* Account */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -243,6 +271,7 @@
 			children = (
 				57EE1E8929C66938001C98EF /* ClothesSearchManager.swift */,
 				57DAB04529D3079E00CF315A /* FirebaseAuthManager.swift */,
+				57DAB06E29D5FDAA00CF315A /* UserDefaultsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -309,6 +338,40 @@
 				57DAB04D29D3412D00CF315A /* AccountTableViewCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		57DAB05C29D47F8300CF315A /* My */ = {
+			isa = PBXGroup;
+			children = (
+				57EA027F29D9A086005DF475 /* HeaderFooter */,
+				57DAB05F29D49C9900CF315A /* Cell */,
+				57DAB05A29D47F7D00CF315A /* MyViewController.swift */,
+				57DAB05D29D47F9700CF315A /* MyPresenter.swift */,
+				57DAB06A29D5ED3C00CF315A /* MyDecorationView.swift */,
+				57DAB07029D6CFDB00CF315A /* MyModel.swift */,
+			);
+			path = My;
+			sourceTree = "<group>";
+		};
+		57DAB05F29D49C9900CF315A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				57DAB06029D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift */,
+				57DAB06429D5A87B00CF315A /* MyCollectionViewBannerCell.swift */,
+				57DAB06629D5ACF400CF315A /* MyCollectionViewMyShoppingCell.swift */,
+				57DAB06C29D5F23D00CF315A /* MyCollectionViewRecentlyViewedCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		57EA027F29D9A086005DF475 /* HeaderFooter */ = {
+			isa = PBXGroup;
+			children = (
+				57EA028029D9A0A8005DF475 /* MyCollectionViewHeader.swift */,
+				57EA028429D9D09D005DF475 /* MyCollectionViewDetailHeader.swift */,
+				57EA028229D9A0BD005DF475 /* MyCollectionViewFooter.swift */,
+			);
+			path = HeaderFooter;
 			sourceTree = "<group>";
 		};
 		57EE1E9429C6AD7D001C98EF /* Search */ = {
@@ -474,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57CC27BB29C63D7400E45637 /* LaunchScreen.storyboard in Resources */,
+				57DAB06329D5A62E00CF315A /* TestStoryboard.storyboard in Resources */,
 				57CC27B829C63D7400E45637 /* Assets.xcassets in Resources */,
 				57DAB03D29D3052000CF315A /* GoogleService-Info.plist in Resources */,
 			);
@@ -503,6 +567,7 @@
 				57EE1E9F29CB0544001C98EF /* CollectionViewFullOneRowListCell.swift in Sources */,
 				57EE1E9329C6ACBB001C98EF /* SearchViewController.swift in Sources */,
 				57E61A7629C65617005F4648 /* Clothes.swift in Sources */,
+				57EA028529D9D09D005DF475 /* MyCollectionViewDetailHeader.swift in Sources */,
 				57CC27F229C6448400E45637 /* TabBarItem.swift in Sources */,
 				57DAB05029D3462400CF315A /* AccountTableViewHeader.swift in Sources */,
 				57DAB03929D2B02500CF315A /* HomeCollectionViewSubBannerCell.swift in Sources */,
@@ -516,21 +581,32 @@
 				57DAB05629D41F4D00CF315A /* AccountTableViewTitleData.swift in Sources */,
 				57EE1EA629CCDDDD001C98EF /* CollectionViewRankOneRowListCell.swift in Sources */,
 				57EE1EAF29CFB7A8001C98EF /* LayoutProvider.swift in Sources */,
+				57DAB06129D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift in Sources */,
+				57EA028129D9A0A8005DF475 /* MyCollectionViewHeader.swift in Sources */,
 				57CC27AF29C63D6F00E45637 /* AppDelegate.swift in Sources */,
 				57CC27B129C63D6F00E45637 /* SceneDelegate.swift in Sources */,
 				57EE1EA829CCF315001C98EF /* CellProvider.swift in Sources */,
 				57E61A7829C65D71005F4648 /* CollectionViewTwoColumnGridCell.swift in Sources */,
 				57CC27F629C64A0E00E45637 /* ShoppingRequestModel.swift in Sources */,
 				57CC27F029C6429500E45637 /* TabBarViewController.swift in Sources */,
+				57DAB06D29D5F23D00CF315A /* MyCollectionViewRecentlyViewedCell.swift in Sources */,
+				57DAB05B29D47F7D00CF315A /* MyViewController.swift in Sources */,
+				57DAB06F29D5FDAA00CF315A /* UserDefaultsManager.swift in Sources */,
+				57DAB06529D5A87B00CF315A /* MyCollectionViewBannerCell.swift in Sources */,
 				57EE1E8C29C66C62001C98EF /* HomeModel.swift in Sources */,
+				57DAB06729D5ACF400CF315A /* MyCollectionViewMyShoppingCell.swift in Sources */,
 				57CC27F829C64A1D00E45637 /* ShoppingResponseModel.swift in Sources */,
 				57EE1EA229CBEA40001C98EF /* CollectionViewThreeRowListCell.swift in Sources */,
 				57EE1E9B29C7E287001C98EF /* DetailPresenter.swift in Sources */,
 				57CC27EA29C6425600E45637 /* HomePresenter.swift in Sources */,
+				57DAB06B29D5ED3C00CF315A /* MyDecorationView.swift in Sources */,
+				57EA028329D9A0BD005DF475 /* MyCollectionViewFooter.swift in Sources */,
 				57DAB04B29D3180600CF315A /* AccountPresenter.swift in Sources */,
 				57EE1E9929C7E27B001C98EF /* DetailViewController.swift in Sources */,
+				57DAB07129D6CFDB00CF315A /* MyModel.swift in Sources */,
 				57DAB03B29D2B08C00CF315A /* HomeCollectionViewNowLookingCell.swift in Sources */,
 				57EE1E9629C6ADAA001C98EF /* SearchPresenter.swift in Sources */,
+				57DAB05E29D47F9700CF315A /* MyPresenter.swift in Sources */,
 				57DAB04929D317F500CF315A /* AccountViewController.swift in Sources */,
 				57DAB04629D3079E00CF315A /* FirebaseAuthManager.swift in Sources */,
 				57EE1EB529D01CE7001C98EF /* CollectionViewLayout.swift in Sources */,
