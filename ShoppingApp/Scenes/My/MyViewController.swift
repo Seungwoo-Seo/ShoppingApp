@@ -114,6 +114,14 @@ extension MyViewController: MyViewProtocol {
         collectionView.reloadData()
     }
 
+    func pushToRecentlyViewedViewController() {
+        let recentlyViewedViewController = RecentlyViewedViewController()
+        navigationController?.pushViewController(
+            recentlyViewedViewController,
+            animated: true
+        )
+    }
+
     enum SectionLayoutKind: Int {
         case 포인트_쿠폰_주문배송조회
         case 광고
