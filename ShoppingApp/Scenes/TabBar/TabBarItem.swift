@@ -7,31 +7,34 @@
 
 import UIKit
 
-enum TabBarItem: CaseIterable {
-    case home
-    case liked
-    case my
+enum TabBarItem: String, CaseIterable {
+    case 홈
+    case 스타일추천
+    case 찜
+    case MY
 
 
     var title: String {
         switch self {
-        case .home: return "홈"
-        case .liked: return "찜"
-        case .my: return "MY"
+        default: return rawValue
         }
     }
 
     var icon: (image: UIImage?, selectedImage: UIImage?) {
         switch self {
-        case .home: return (
+        case .홈: return (
             UIImage(systemName: "house"),
             UIImage(systemName: "house.fill")
         )
-        case .liked: return (
+        case .스타일추천: return (
+            UIImage(systemName: "books.vertical"),
+            UIImage(systemName: "books.vertical.fill")
+        )
+        case .찜: return (
             UIImage(systemName: "heart"),
             UIImage(systemName: "heart.fill")
         )
-        case .my: return (
+        case .MY: return (
             UIImage(systemName: "person"),
             UIImage(systemName: "person.fill")
         )
@@ -40,13 +43,17 @@ enum TabBarItem: CaseIterable {
 
     var viewController: UIViewController {
         switch self {
-        case .home:
+        case .홈:
             return UINavigationController(
                 rootViewController: HomeViewController()
             )
-        case .liked:
+        case .스타일추천:
+            return UINavigationController(
+                rootViewController: StyleRecommendationViewController()
+            )
+        case .찜:
             return UIViewController()
-        case .my:
+        case .MY:
             return UINavigationController(   rootViewController: MyViewController()
             )
         }
