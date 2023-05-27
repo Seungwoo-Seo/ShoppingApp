@@ -59,6 +59,12 @@
 		57EA029129D9E5C0005DF475 /* StyleRecommendationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029029D9E5C0005DF475 /* StyleRecommendationPresenter.swift */; };
 		57EA029329D9EA0F005DF475 /* StyleRecommendationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029229D9EA0F005DF475 /* StyleRecommendationCollectionViewCell.swift */; };
 		57EA029529D9F014005DF475 /* StyleRecommendationCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029429D9F014005DF475 /* StyleRecommendationCollectionViewHeader.swift */; };
+		57EA029829DAE23E005DF475 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029729DAE23E005DF475 /* CategoryViewController.swift */; };
+		57EA029A29DAE24C005DF475 /* CategoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029929DAE24C005DF475 /* CategoryPresenter.swift */; };
+		57EA029D29DAEE5D005DF475 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029C29DAEE5D005DF475 /* CategoryCollectionViewCell.swift */; };
+		57EA029F29DB0465005DF475 /* CategoryCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA029E29DB0465005DF475 /* CategoryCollectionViewHeader.swift */; };
+		57EA02B329E0B563005DF475 /* CategoryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EA02B229E0B563005DF475 /* CategoryCollectionView.swift */; };
+		57EB4F4A29E71C5B006FD954 /* CategoryCollectionViewBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EB4F4929E71C5B006FD954 /* CategoryCollectionViewBackground.swift */; };
 		57EE1E8A29C66938001C98EF /* ClothesSearchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E8929C66938001C98EF /* ClothesSearchManager.swift */; };
 		57EE1E8C29C66C62001C98EF /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E8B29C66C62001C98EF /* HomeModel.swift */; };
 		57EE1E9329C6ACBB001C98EF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EE1E9229C6ACBB001C98EF /* SearchViewController.swift */; };
@@ -144,6 +150,12 @@
 		57EA029029D9E5C0005DF475 /* StyleRecommendationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleRecommendationPresenter.swift; sourceTree = "<group>"; };
 		57EA029229D9EA0F005DF475 /* StyleRecommendationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleRecommendationCollectionViewCell.swift; sourceTree = "<group>"; };
 		57EA029429D9F014005DF475 /* StyleRecommendationCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StyleRecommendationCollectionViewHeader.swift; sourceTree = "<group>"; };
+		57EA029729DAE23E005DF475 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		57EA029929DAE24C005DF475 /* CategoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPresenter.swift; sourceTree = "<group>"; };
+		57EA029C29DAEE5D005DF475 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		57EA029E29DB0465005DF475 /* CategoryCollectionViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewHeader.swift; sourceTree = "<group>"; };
+		57EA02B229E0B563005DF475 /* CategoryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionView.swift; sourceTree = "<group>"; };
+		57EB4F4929E71C5B006FD954 /* CategoryCollectionViewBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewBackground.swift; sourceTree = "<group>"; };
 		57EE1E8929C66938001C98EF /* ClothesSearchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClothesSearchManager.swift; sourceTree = "<group>"; };
 		57EE1E8B29C66C62001C98EF /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
 		57EE1E9229C6ACBB001C98EF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -264,6 +276,7 @@
 				57CC27EE29C6428100E45637 /* TabBar */,
 				57CC27EB29C6426400E45637 /* Home */,
 				57EA028D29D9E58A005DF475 /* StyleRecommendation */,
+				57EA029629DAE229005DF475 /* Category */,
 				57EE1E9429C6AD7D001C98EF /* Search */,
 				57EE1E9729C7E25F001C98EF /* Detail */,
 				57DAB05C29D47F8300CF315A /* My */,
@@ -409,6 +422,27 @@
 				57EA029429D9F014005DF475 /* StyleRecommendationCollectionViewHeader.swift */,
 			);
 			path = StyleRecommendation;
+			sourceTree = "<group>";
+		};
+		57EA029629DAE229005DF475 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				57EA029B29DAEE4C005DF475 /* Cell */,
+				57EA029729DAE23E005DF475 /* CategoryViewController.swift */,
+				57EA029929DAE24C005DF475 /* CategoryPresenter.swift */,
+				57EA02B229E0B563005DF475 /* CategoryCollectionView.swift */,
+				57EB4F4929E71C5B006FD954 /* CategoryCollectionViewBackground.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		57EA029B29DAEE4C005DF475 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				57EA029C29DAEE5D005DF475 /* CategoryCollectionViewCell.swift */,
+				57EA029E29DB0465005DF475 /* CategoryCollectionViewHeader.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		57EE1E9429C6AD7D001C98EF /* Search */ = {
@@ -601,6 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57EA029A29DAE24C005DF475 /* CategoryPresenter.swift in Sources */,
 				57EE1E9F29CB0544001C98EF /* CollectionViewFullOneRowListCell.swift in Sources */,
 				57EE1E9329C6ACBB001C98EF /* SearchViewController.swift in Sources */,
 				57E61A7629C65617005F4648 /* Clothes.swift in Sources */,
@@ -610,6 +645,7 @@
 				57DAB03929D2B02500CF315A /* HomeCollectionViewSubBannerCell.swift in Sources */,
 				57DAB05229D3472900CF315A /* AccountTableViewFooter.swift in Sources */,
 				57DAB04E29D3412D00CF315A /* AccountTableViewCell.swift in Sources */,
+				57EA029D29DAEE5D005DF475 /* CategoryCollectionViewCell.swift in Sources */,
 				57EA028F29D9E5B2005DF475 /* StyleRecommendationViewController.swift in Sources */,
 				57EE1E9D29C93498001C98EF /* CollectionViewFiveColumnGridCell.swift in Sources */,
 				57EE1EAC29CF1743001C98EF /* HomeCollectionViewHeader.swift in Sources */,
@@ -621,9 +657,11 @@
 				57EE1EA629CCDDDD001C98EF /* CollectionViewRankOneRowListCell.swift in Sources */,
 				57EE1EAF29CFB7A8001C98EF /* LayoutProvider.swift in Sources */,
 				57DAB06129D49CF800CF315A /* MyCollectionViewPointCouponOrderDeliveryCell.swift in Sources */,
+				57EA029829DAE23E005DF475 /* CategoryViewController.swift in Sources */,
 				57EA028129D9A0A8005DF475 /* MyCollectionViewHeader.swift in Sources */,
 				57CC27AF29C63D6F00E45637 /* AppDelegate.swift in Sources */,
 				57CC27B129C63D6F00E45637 /* SceneDelegate.swift in Sources */,
+				57EB4F4A29E71C5B006FD954 /* CategoryCollectionViewBackground.swift in Sources */,
 				57EA029129D9E5C0005DF475 /* StyleRecommendationPresenter.swift in Sources */,
 				57EE1EA829CCF315001C98EF /* CellProvider.swift in Sources */,
 				57E61A7829C65D71005F4648 /* CollectionViewTwoColumnGridCell.swift in Sources */,
@@ -641,11 +679,13 @@
 				57EE1EA229CBEA40001C98EF /* CollectionViewThreeRowListCell.swift in Sources */,
 				57EA028A29D9DAAB005DF475 /* RecentlyViewedPresenter.swift in Sources */,
 				57EE1E9B29C7E287001C98EF /* DetailPresenter.swift in Sources */,
+				57EA029F29DB0465005DF475 /* CategoryCollectionViewHeader.swift in Sources */,
 				57CC27EA29C6425600E45637 /* HomePresenter.swift in Sources */,
 				57DAB06B29D5ED3C00CF315A /* MyDecorationView.swift in Sources */,
 				57EA028329D9A0BD005DF475 /* MyCollectionViewFooter.swift in Sources */,
 				57DAB04B29D3180600CF315A /* AccountPresenter.swift in Sources */,
 				57EE1E9929C7E27B001C98EF /* DetailViewController.swift in Sources */,
+				57EA02B329E0B563005DF475 /* CategoryCollectionView.swift in Sources */,
 				57DAB07129D6CFDB00CF315A /* MyModel.swift in Sources */,
 				57DAB03B29D2B08C00CF315A /* HomeCollectionViewNowLookingCell.swift in Sources */,
 				57EE1E9629C6ADAA001C98EF /* SearchPresenter.swift in Sources */,
