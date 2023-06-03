@@ -1,0 +1,20 @@
+PODS:
+  - Toast-Swift (5.0.1)
+  - TTGTagCollectionView (2.3.0)
+
+DEPENDENCIES:
+  - Toast-Swift (~> 5.0.1)
+  - TTGTagCollectionView
+
+SPEC REPOS:
+  trunk:
+    - Toast-Swift
+    - TTGTagCollectionView
+
+SPEC CHECKSUMS:
+  Toast-Swift: 9b6a70f28b3bf0b96c40d46c0c4b9d6639846711
+  TTGTagCollectionView: 4104f93281097eae5adbf4444811e32f5e52dc95
+
+PODFILE CHECKSUM: 566be76547d8f7c30c5f8161040a52cf2b29a402
+
+COCOAPODS: 1.12.0

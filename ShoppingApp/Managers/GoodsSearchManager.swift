@@ -16,19 +16,17 @@ protocol GoodsSearchManagerProtocol {
         completionHandler: @escaping ([Goods]) -> ()
     )
 
-    mutating func request(
+    func request(
         with query: String,
         display: Int,
         start: Int,
         completionHandler: @escaping ([Goods]) -> ()
     )
 
-    mutating func dataTasksReset()
 }
 
 // 네이버 쇼핑 API와 통신할 API
 struct GoodsSearchManager: GoodsSearchManagerProtocol {
-    private var dataTasks: [URLSessionTask?] = []
 
     func request(
         with query: String,
@@ -62,7 +60,7 @@ struct GoodsSearchManager: GoodsSearchManagerProtocol {
         .resume()
     }
 
-    mutating func request(
+    func request(
         with query: String,
         display: Int,
         start: Int,
@@ -76,18 +74,12 @@ struct GoodsSearchManager: GoodsSearchManagerProtocol {
             start: start
         )
 
-        guard dataTasks.firstIndex(where: { task in
-            task?.originalRequest?.url == parameters.url
-        }) == nil else {return}
-
-        print("hi~")
-
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": "BLrJtVO8Z_5bLS7FfMyy",
             "X-Naver-Client-Secret": "5VXAJgE7V9"
         ]
 
-        let dataTask = AF.request(
+        AF.request(
             url,
             method: .get,
             parameters: parameters,
@@ -101,13 +93,7 @@ struct GoodsSearchManager: GoodsSearchManagerProtocol {
                 print(error.localizedDescription)
             }
         }
-        .task
-        dataTasks.append(dataTask)
-        dataTask?.resume()
-    }
-
-    mutating func dataTasksReset() {
-        dataTasks = []
+        .resume()
     }
 
 }
