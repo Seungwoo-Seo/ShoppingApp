@@ -152,6 +152,10 @@ extension MoreViewController: MoreViewProtocol {
         }
     }
 
+    func tabBarIsHidden(_ isHidden: Bool) {
+        tabBarController?.tabBar.isHidden = isHidden
+    }
+
     func reloadCollectionView() {
         collectionView.reloadData()
     }

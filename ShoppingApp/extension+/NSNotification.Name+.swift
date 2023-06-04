@@ -11,11 +11,6 @@ extension NSNotification.Name {
 
     static let likeRadioButton = NSNotification.Name("likeRadioButton")
 
-//    static let stopBannerTimer = NSNotification.Name("stopBannerTimer")
-//
-//    static let startBannerTimer = NSNotification.Name("startBannerTimer")
-
-
     /// InfinityCarouselHorseViewController를
     /// tap 했을 때 해당 goods를 전송하기 위한 노티
     static let goodsOfHorse = NSNotification.Name("goodsOfHorse")
