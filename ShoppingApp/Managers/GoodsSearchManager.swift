@@ -9,23 +9,26 @@ import Alamofire
 import Foundation
 
 // Test를 편하게 하기 위해서 Protocol을 선언
-protocol ClothesSearchManagerProtocol {
+protocol GoodsSearchManagerProtocol {
 
     func request(
         with query: String,
         completionHandler: @escaping ([Goods]) -> ()
     )
 
-    func request(
+    mutating func request(
         with query: String,
         display: Int,
         start: Int,
         completionHandler: @escaping ([Goods]) -> ()
     )
+
+    mutating func dataTasksReset()
 }
 
 // 네이버 쇼핑 API와 통신할 API
-struct ClothesSearchManager: ClothesSearchManagerProtocol {
+struct GoodsSearchManager: GoodsSearchManagerProtocol {
+    private var dataTasks: [URLSessionTask?] = []
 
     func request(
         with query: String,
@@ -59,24 +62,32 @@ struct ClothesSearchManager: ClothesSearchManagerProtocol {
         .resume()
     }
 
-    func request(
+    mutating func request(
         with query: String,
         display: Int,
         start: Int,
         completionHandler: @escaping ([Goods]) -> ()
     ) {
         guard let url = URL(string: "https://openapi.naver.com/v1/search/shop.json") else {return}
+
         let parameters = ShoppingRequestModel(
             query: query,
             display: display,
             start: start
         )
+
+        guard dataTasks.firstIndex(where: { task in
+            task?.originalRequest?.url == parameters.url
+        }) == nil else {return}
+
+        print("hi~")
+
         let headers: HTTPHeaders = [
             "X-Naver-Client-Id": "BLrJtVO8Z_5bLS7FfMyy",
             "X-Naver-Client-Secret": "5VXAJgE7V9"
         ]
 
-        AF.request(
+        let dataTask = AF.request(
             url,
             method: .get,
             parameters: parameters,
@@ -90,7 +101,13 @@ struct ClothesSearchManager: ClothesSearchManagerProtocol {
                 print(error.localizedDescription)
             }
         }
-        .resume()
+        .task
+        dataTasks.append(dataTask)
+        dataTask?.resume()
+    }
+
+    mutating func dataTasksReset() {
+        dataTasks = []
     }
 
 }

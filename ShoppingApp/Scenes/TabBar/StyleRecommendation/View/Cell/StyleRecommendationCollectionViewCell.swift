@@ -1,20 +1,24 @@
 //
-//  HomeCollectionViewOneSecondMyFavoriteCell.swift
+//  StyleRecommendationCollectionViewCell.swift
 //  ShoppingApp
 //
-//  Created by 서승우 on 2023/03/28.
+//  Created by 서승우 on 2023/04/03.
 //
 
 import Kingfisher
 import SnapKit
 import UIKit
 
-final class HomeCollectionViewOneSecondMyFavoriteCell: UICollectionViewCell {
-    static let identifier = "HomeCollectionViewOneSecondMyFavoriteCell"
+final class StyleRecommendationCollectionViewCell: UICollectionViewCell {
+    static let identifier = "StyleRecommendationCollectionViewCell"
 
     private lazy var thumnailImageViewShadowView: UIView = {
         let view = UIView()
         view.layer.configureShadow()
+        view.setContentCompressionResistancePriority(
+            .defaultLow,
+            for: .vertical
+        )
 
         return view
     }()
@@ -22,11 +26,7 @@ final class HomeCollectionViewOneSecondMyFavoriteCell: UICollectionViewCell {
     private lazy var thumnailImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 16.0
         imageView.clipsToBounds = true
-        imageView.setContentCompressionResistancePriority(
-            .defaultLow, for: .vertical
-        )
 
         return imageView
     }()
@@ -61,7 +61,7 @@ final class HomeCollectionViewOneSecondMyFavoriteCell: UICollectionViewCell {
         return button
     }()
 
-    private lazy var clothesInfoStackView: GoodsInfoStackView = {
+    private lazy var goodsInfoStackView: GoodsInfoStackView = {
         let stackView = GoodsInfoStackView(frame: .zero)
 
         return stackView
@@ -73,31 +73,24 @@ final class HomeCollectionViewOneSecondMyFavoriteCell: UICollectionViewCell {
         configureHierarchy()
     }
 
-    var task: DownloadTask?
-
     func configure(with goods: Goods?) {
         guard let goods = goods else {return}
-        task = thumnailImageView.kf.setImage(
+        thumnailImageView.kf.setImage(
             with: goods.imageURL,
             placeholder: UIImage.placeholder
         )
-        clothesInfoStackView.configure(with: goods)
-    }
-
-    func cancelDownloadTask() {
-        task?.cancel()
-//        thumnailImageView.kf.cancelDownloadTask()
+        goodsInfoStackView.configure(with: goods)
     }
 
 }
 
-private extension HomeCollectionViewOneSecondMyFavoriteCell {
+private extension StyleRecommendationCollectionViewCell {
 
     func configureHierarchy() {
         [
             thumnailImageViewShadowView,
             likedButton,
-            clothesInfoStackView
+            goodsInfoStackView
         ].forEach { contentView.addSubview($0) }
 
         thumnailImageViewShadowView.addSubview(thumnailImageView)
@@ -113,11 +106,11 @@ private extension HomeCollectionViewOneSecondMyFavoriteCell {
         }
 
         likedButton.snp.makeConstraints { make in
-            make.trailing.equalTo(thumnailImageViewShadowView.snp.trailing)
-            make.bottom.equalTo(thumnailImageViewShadowView.snp.bottom)
+            make.trailing.equalTo(thumnailImageView.snp.trailing)
+            make.bottom.equalTo(thumnailImageView.snp.bottom)
         }
 
-        clothesInfoStackView.snp.makeConstraints { make in
+        goodsInfoStackView.snp.makeConstraints { make in
             make.top.equalTo(thumnailImageViewShadowView.snp.bottom).offset(8.0)
             make.leading.equalToSuperview()
             make.trailing.equalToSuperview()
@@ -137,3 +130,5 @@ private extension HomeCollectionViewOneSecondMyFavoriteCell {
     }
 
 }
+
+

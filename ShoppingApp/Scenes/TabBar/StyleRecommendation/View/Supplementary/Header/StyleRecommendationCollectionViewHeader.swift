@@ -24,7 +24,7 @@ final class StyleRecommendationCollectionViewHeader: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        setupLayout()
+        configureHierarchy()
     }
 
     func configure(with title: String) {
@@ -35,7 +35,7 @@ final class StyleRecommendationCollectionViewHeader: UICollectionReusableView {
 
 private extension StyleRecommendationCollectionViewHeader {
 
-    func setupLayout() {
+    func configureHierarchy() {
         [titleLabel].forEach { addSubview($0) }
 
         let inset: CGFloat = 16.0
