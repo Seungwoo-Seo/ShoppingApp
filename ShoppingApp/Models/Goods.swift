@@ -26,4 +26,51 @@ struct Goods: Codable, Hashable {
         return URL(string: image)
     }
 
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(
+            keyedBy: CodingKeys.self
+        )
+        self.title = try container.decode(
+            String.self,
+            forKey: .title
+        )
+        self.link = try container.decode(
+            String.self,
+            forKey: .link
+        )
+        self.image = try container.decode(
+            String.self,
+            forKey: .image
+        )
+        self.lprice = try container.decode(
+            String.self,
+            forKey: .lprice
+        )
+        self.hprice = try container.decode(
+            String.self,
+            forKey: .hprice
+        )
+        self.mallName = try container.decode(
+            String.self,
+            forKey: .mallName
+        )
+    }
+
+    /// 테스트용 생성자
+    init(
+        title: String = "",
+        link: String = "",
+        image: String = "",
+        lprice: String = "",
+        hprice: String = "",
+        mallName: String = ""
+    ) {
+        self.title = title
+        self.link = link
+        self.image = image
+        self.lprice = lprice
+        self.hprice = hprice
+        self.mallName = mallName
+    }
+
 }

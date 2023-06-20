@@ -10,12 +10,12 @@ import Foundation
 extension String {
 
     /// html String을 디코딩 해주는 생성자
-    init?(htmlEncodedString: String) {
-        guard let data = htmlEncodedString.data(
-            using: .utf8
-        ) else {
-            return nil
-        }
+    init?(htmlEncodedString: String?) {
+        guard let htmlEncodedString = htmlEncodedString,
+              let data = htmlEncodedString.data(
+                using: .utf8
+              )
+        else {return nil}
 
         let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
             .documentType: NSAttributedString.DocumentType.html,
