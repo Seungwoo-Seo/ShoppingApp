@@ -13,6 +13,7 @@ protocol MoreViewProtocol: AnyObject {
     func configureNavigationBar(with title: String)
     func configureCollectionView()
     func configureHierarchy()
+    func tabBarIsHidden(_ isHidden: Bool)
     func reloadCollectionView()
     func endRefreshing()
     func pushToWebViewController(with goods: Goods)
@@ -64,6 +65,7 @@ final class MorePresenter: NSObject {
         )
         viewController.configureCollectionView()
         viewController.configureHierarchy()
+        viewController.tabBarIsHidden(true)
 
         requestGoodsList(
             isNeededToReset: false,
