@@ -137,14 +137,14 @@ ShoppingApp 사용 영상
 <img width="500" alt="유저" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/7da346b8-478f-4529-81e5-c4b5bf098fbb">
 
 #### FirebaseFirestore
-##### 사용자 DB
+##### 사용자
 <img width="500" alt="유저디비" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/5e30ef10-3c3d-43cd-bd32-950c13e06828">
 
 #### FirebaseRealtimeDatabase
-##### 찜 DB
+##### 찜
 <img width="500" alt="찜" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/e7ec7ec9-f36e-49f6-b6b1-c81050bb4b14">
 
-##### 인기검색어 DB
+##### 인기검색어
 <img width="500" alt="검색디비" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1b4a11f2-bc41-470b-98ff-fc170ee67008">
 
 ------
