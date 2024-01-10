@@ -130,24 +130,6 @@ ShoppingApp 사용 영상
 - 키보드가 올라가고 내려갈때 하단의 버튼도 같이 움직임
 
 ------
-### Firebase
-
-#### FirebaseAuth
-##### 이메일, 구글, 애플 가입
-<img width="500" alt="유저" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/7da346b8-478f-4529-81e5-c4b5bf098fbb">
-
-#### FirebaseFirestore
-##### 사용자
-<img width="500" alt="유저디비" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/5e30ef10-3c3d-43cd-bd32-950c13e06828">
-
-#### FirebaseRealtimeDatabase
-##### 찜
-<img width="500" alt="찜" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/e7ec7ec9-f36e-49f6-b6b1-c81050bb4b14">
-
-##### 인기검색어
-<img width="500" alt="검색디비" src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1b4a11f2-bc41-470b-98ff-fc170ee67008">
-
-------
 
 ###### 배너 이미지 출처
 출처 <a href="https://kr.freepik.com/free-vector/hand-drawn-shopping-horizontal-sale-banner_41538524.htm#query=horizontal%20banner&position=30&from_view=search&track=ais">Freepik</a>
