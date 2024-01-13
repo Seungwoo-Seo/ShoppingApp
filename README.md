@@ -1,25 +1,10 @@
 # ShoppingApp
 "하이버"라는 남성 전문 쇼핑앱을 참고하여 만든 앱입니다.
-## ⏰  개발기간
-2023년 3월 19일 ~ 6월 1일
-## 💻 개발인원
-1인
-## ⚙️  개발환경
-- IDE : Xcode 14.2
-- Language : Swift 5.x
-- iOS Deployment Target : 15.6
-- Framework : UIKit
-- Database : Firebase Realtime Database, Firebase FireStore
-- UI : Code
-- Design Pattern : MVP
-- 의존성 관리 도구 : SPM, CocoaPods
-- 외부 라이브러리 : SnapKit, Kingfisher, Alamofire, Tabman, TTGTagCollectionView, Toast
+
 ## 📌  주요화면 및 주요기능
 ShoppingApp 사용 영상
 - https://youtu.be/wwq6doWtnNE
 -------
-
-### First Floor Scenes - tabBarItem에 해당하는 화면들. 즉, 최상단 화면들
 
 #### 홈 화면 - https://youtube.com/shorts/jkuCFmnSQxk?feature=share
 
@@ -131,7 +116,107 @@ ShoppingApp 사용 영상
 
 ------
 
-###### 배너 이미지 출처
+
+# 모음 - 서울 모범음식점 찾기
+
+<p align="center">
+  모음은 서울시에서 지정한 일반음식점 및 집단급식소 중 위생관리 및 고객 서비스 수준이 우수한 업소를 찾아볼 수 있는 서비스입니다.
+</p>
+
+  
+<p align="center">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f7674e21-7dab-4d82-b0f3-17434679f683" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/e50718e4-8afc-4c1d-bbce-ef2a8aca5024" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/90ae0dcd-99ab-462b-b0a1-b3653c8827cc" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/a7fb2876-dc56-4ce7-a9cc-1c5dd1e99f89" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/0db88594-bb32-46ec-8346-3ce1b01da748" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/184e3b7d-8b74-4228-b2f3-767c618a9e7d" width="130">
+</p>
+
+## 목차
+
+- [🤝 개발 인원](#-개발-인원)
+- [⏰ 개발 기간](#-개발-기간) 
+- [🚀 주요 기능](#-주요-기능) 
+- [💻 개발 환경 및 기술 스택](#-개발-환경-및-기술-스택)
+- [🚧 기술적 도전](#-기술적-도전)
+- [🛠 트러블 슈팅](#-트러블-슈팅)
+- [📝 회고](#-회고)
+- [🖼 아이콘 출처 및 저작권 정보](#-아이콘-출처-및-저작권-정보)
+
+## 🤝 개발 인원
+
+- **인원**: 1인
+
+## ⏰ 개발 기간
+
+- 2023년 3월 ~ 6월 (3개월)
+
+## 🚀 주요 기능
+
+- **Auto Scroll**
+- **Carousel Effect CollectionView**
+- **Modern Colloection View**
+- **Expandable Cell**
+- **상품 찜**
+- **상품 검색**
+- **페이지네이션**
+- **이메일 회원가입**
+- **소셜 로그인**
+
+## 💻 개발 환경 및 기술 스택
+- 언어 : Swift
+- IDE : Xcode
+- 디자인 패턴 : MVP
+- iOS Deployment Target : 15.0
+- UI : UIKit, CodeBase UI, AutoLayout, SnapKit, Compositional Layout
+- 네트워크 : Alamofire
+- 데이터베이스: FirebaseRealtimeDataBase, FirebaseFireStore
+- 저장소 : FirebaseStorage
+- 인증 : FirebaseAuthentication
+- 의존성 관리 : CocoaPods, SPM
+- 그 외 라이브러리 및 프레임워크 : Kingfisher, Tabman, TTGTagCollectionView, Toast
+  
+
+## 🚧 기술적 도전
+
+<!-- 프로젝트를 진행하면서 겪은 기술적인 도전과 어떻게 해결했는지에 대한 설명을 추가한다. -->
+### 1. Modern Colloection View
+- **도전 상황**</br>
+다양한 레이아웃을 가진
+
+- **해결 방법**</br>
+
+
+## 🛠 트러블 슈팅
+
+<!-- 프로젝트 중 발생한 문제와 그 해결 방법에 대한 내용을 기록한다. -->
+### 1. 네트워크 응답 데이터 UI 바인딩 이슈
+- **문제 상황**</br>
+
+
+- **해결 방법**</br>
+
+
+## 📝 회고
+
+<!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
+프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
+
+👍 성취한 점
+1. **독학으로 생애 첫 프로젝트 도전 성공**</br>
+
+
+🤔 개선할 점
+1. **Massive View Controller**</br>
+
+
+## 🖼 아이콘 출처 및 저작권 정보
+
+이 프로젝트에서 사용된 아이콘들은 아래와 같은 출처에서 제공되었습니다. 각 아이콘의 저작권은 해당 제작자에게 있습니다. 아이콘을 사용하려면 각 아이콘의 출처로 이동하여 저작권 관련 정보를 확인하세요.
+
+- [Food icons](https://www.flaticon.com/free-icons/food) by justicon - Flaticon
+- [찐 생선 아이콘](https://www.flaticon.com/kr/free-icons/-) by surang - Flaticon
 출처 <a href="https://kr.freepik.com/free-vector/hand-drawn-shopping-horizontal-sale-banner_41538524.htm#query=horizontal%20banner&position=30&from_view=search&track=ais">Freepik</a>
 
 출처 <a href="https://kr.freepik.com/free-vector/flat-design-horizontal-sale-banner_40125112.htm#query=horizontal%20banner&position=49&from_view=search&track=ais">Freepik</a>
