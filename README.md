@@ -19,12 +19,25 @@
   <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/4d2000e7-1973-4ef2-991c-8a848e92abe1" width="130">
   <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/4a120d90-ca6f-46ff-840b-7a4aeecba901" width="130">
   <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/fb21d33c-9ba7-4b4f-b447-3d8d311e81aa" width="130">
-  
-|홈|검색|찜|최근 본 상품|
-|:-:|:-:|:-:|:-:|
-|![홈](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2)|![검색](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0)|![찜](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e)|
-![최근_본_상품](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5)|
 </p>
+
+<!--
+<p align="center">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5" width="130">
+</p>
+-->
+|홈|검색|찜|최근 본 상품|
+|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2" width="200">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0" width="200">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e" width="200">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5" width="200">|
+
+<!--
+|:-:|:-:|:-:|:-:|
+|![홈](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2?width=130)|![검색](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0)|![찜](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e)|
+![최근_본_상품](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5)|
+-->
 
 
 ## 목차
