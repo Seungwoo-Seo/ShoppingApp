@@ -21,9 +21,9 @@
   <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/fb21d33c-9ba7-4b4f-b447-3d8d311e81aa" width="130">
 </p>
 
-|홈|검색|찜|최근 본 상품|
-|:---:|:---:|:---:|:---:|
-|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2" width="180">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0" width="180">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e" width="180">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5" width="180">|
+|홈|검색|찜|최근 본 상품|소셜 로그인|
+|:---:|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2" width="160">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0" width="160">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e" width="160">|<img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5" width="160">|<img src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/7e553976-f1b5-49ee-b005-f4921e6dcb3d" width="160">|
 
 ## 목차
 
@@ -37,13 +37,13 @@
 
 ## 🚀 주요 기능
 
-- **Compositional Layout 활용해 다양하고 복잡한 레이아웃 구현**
-- **Pageboy 라이브러리 기반 Auto Scroll 구현**
-- **Pageboy 라이브러리 기반 Infinite Carousel Effect 구현**
-- **Diffable DataSource를 활용해 Expandable Cell 구현**
-- **Firebase RealtimeDataBase를 활용해 상품 찜 구현**
-- **Firebase Authentication 기반 이메일 회원가입 구현**
-- **Firebase Authentication 기반 소셜 로그인 구현**
+- Compositional Layout 활용해 다양하고 복잡한 레이아웃 구현
+- Pageboy 라이브러리 기반 Auto Scroll 구현
+- Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
+- Diffable DataSource를 활용해 Expandable Cell 구현
+- Firebase RealtimeDataBase를 활용해 상품 찜 구현
+- Firebase Authentication 기반 이메일 회원가입 구현
+- Firebase Authentication 기반 소셜 로그인 구현
 
 ## 💻 기술 스택
 
@@ -144,309 +144,7 @@ private extension HomeCollectionViewLayout {
         return section
     }
 
-    /// 카테고리 섹션 layout.
-    /// 다섯개의 컬럼을 가진 그리드 형태
-    func createCategorySection() -> NSCollectionLayoutSection {
-        let spacing: CGFloat = 16.0
-
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.2),
-            heightDimension: .fractionalHeight(1.0)
-        )
-
-        let item = NSCollectionLayoutItem(
-            layoutSize: itemSize
-        )
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalWidth(0.2)
-        )
-
-        let group: NSCollectionLayoutGroup
-        if #available(iOS 16.0, *) {
-            group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: groupSize,
-                repeatingSubitem: item,
-                count: 5
-            )
-        } else {
-            group = NSCollectionLayoutGroup.horizontal(
-                layoutSize: groupSize,
-                subitem: item,
-                count: 5
-            )
-        }
-        group.interItemSpacing = .fixed(spacing)
-
-        let section = NSCollectionLayoutSection(
-            group: group
-        )
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: spacing,
-            leading: spacing,
-            bottom: spacing,
-            trailing: spacing
-        )
-        section.interGroupSpacing = spacing
-
-        let sectionFooter = createClearFooter()
-        section.boundarySupplementaryItems = [sectionFooter]
-
-        return section
-    }
-
-    /// 오늘의랭킹 섹션 layout
-    /// 하나의 열에 여러 컬럼을 가진 형태
-    func createRankSection() -> NSCollectionLayoutSection {
-        let contentsInset: CGFloat = 8.0
-
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0)
-        )
-
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
-            heightDimension: .fractionalHeight(0.4)
-        )
-
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item]
-        )
-        group.contentInsets = .init(
-            top: 0,
-            leading: contentsInset,
-            bottom: 0,
-            trailing: contentsInset
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .continuous
-
-        let sectionHeader = createSectionNameHeader()
-        let sectionFooter = createClearFooter()
-        section.boundarySupplementaryItems = [
-            sectionHeader,
-            sectionFooter
-        ]
-
-        return section
-    }
-
-    /// 서브배너 섹션 layout.
-    /// 하나의 열에 여러 컬럼을 가진 형태
-    func createSubBannerSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(1.0)
-        )
-
-        let item = NSCollectionLayoutItem(
-            layoutSize: itemSize
-        )
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.2)
-        )
-
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitems: [item]
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.orthogonalScrollingBehavior = .groupPagingCentered
-
-        let sectionHeader = createClearHeader()
-        let sectionFooter = createClearFooter()
-
-        section.boundarySupplementaryItems = [
-            sectionHeader,
-            sectionFooter
-        ]
-
-        return section
-    }
-
-    /// 오늘구매해야할제품, 지금눈에띄는후드티, 일초만에사로잡는나의취향
-    /// 섹션 layout
-    /// 두개의 컬럼을 가진 그리드 형태
-    func createTwoColumGridSection() -> NSCollectionLayoutSection {
-        let contentsInset: CGFloat = 16.0
-        let spacing: CGFloat = 16.0
-
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(0.5),
-            heightDimension: .fractionalHeight(1.0)
-        )
-
-        let item = NSCollectionLayoutItem(
-            layoutSize: itemSize
-        )
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.4)
-        )
-
-        let group = NSCollectionLayoutGroup.horizontal(
-            layoutSize: groupSize,
-            subitem: item,
-            count: 2
-        )
-        group.interItemSpacing = .fixed(spacing)
-        group.contentInsets = .init(
-            top: 0,
-            leading: contentsInset,
-            bottom: 0,
-            trailing: contentsInset
-        )
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.interGroupSpacing = spacing
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: contentsInset,
-            trailing: 0
-        )
-
-        let sectionHeader = createSectionNameHeader()
-        let sectionFooter = createMoreFooter()
-        section.boundarySupplementaryItems = [
-            sectionHeader,
-            sectionFooter
-        ]
-
-        return section
-    }
-
-    /// 이주의브랜드이슈 섹션 layout
-    /// 하나의 컬럼에 3개의 열이 있는 형태
-    func createBrandOfTheWeekSection() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.3)
-        )
-
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-
-        let contentsInset: CGFloat = 16.0
-        item.contentInsets = .init(
-            top: 0,
-            leading: contentsInset,
-            bottom: contentsInset,
-            trailing: contentsInset
-        )
-
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .fractionalHeight(0.6)
-        )
-
-        let group = NSCollectionLayoutGroup.vertical(
-            layoutSize: groupSize,
-            subitem: item,
-            count: 3
-        )
-
-        let spacing: CGFloat = 16.0
-        group.interItemSpacing = .fixed(spacing)
-
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(
-            top: 0,
-            leading: 0,
-            bottom: contentsInset,
-            trailing: 0
-        )
-        section.orthogonalScrollingBehavior = .groupPaging
-
-        let sectionHeader = createSectionNameHeader()
-        let sectionFooter = createMoreFooter()
-        section.boundarySupplementaryItems = [
-            sectionHeader,
-            sectionFooter
-        ]
-
-        return section
-    }
-
-}
-~~~
-~~~swift
-// Supplementary
-private extension HomeCollectionViewLayout {
-
-    /// 여백용 header
-    func createClearHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.05)
-        )
-
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-
-        return header
-    }
-
-    /// sectionName용 header
-    func createSectionNameHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.1)
-        )
-
-        let header = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-
-        return header
-    }
-
-    /// 여백용 footer
-    func createClearFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let footerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.05)
-        )
-
-        let footer = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: footerSize,
-            elementKind: UICollectionView.elementKindSectionFooter,
-            alignment: .bottom
-        )
-
-        return footer
-    }
-
-    /// more용 footer
-    func createMoreFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let footerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1),
-            heightDimension: .fractionalHeight(0.1)
-        )
-
-        let footer = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: footerSize,
-            elementKind: UICollectionView.elementKindSectionFooter,
-            alignment: .bottom
-        )
-
-        return footer
-    }
-
+    ...
 }
 ~~~
 
@@ -456,9 +154,8 @@ private extension HomeCollectionViewLayout {
 Expandable Cell을 구현하고 싶었습니다.
 
 - **도전 결과**</br>
-<P>
-  <img src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1d8a747d-a42e-44fd-92c0-8378673b7619" width="130"> Diffable DataSource와 Notification을 활용하여 구현에 성공했습니다. 구현 내용은 아래와 같습니다.
-</P>
+<img src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1d8a747d-a42e-44fd-92c0-8378673b7619" width="130"></br>
+Diffable DataSource와 Notification을 활용하여 구현에 성공했습니다. 구현 내용은 아래와 같습니다.
 
 ~~~swift
 func didTapOutLineButton(_ sender: UIButton) {
@@ -551,10 +248,10 @@ thumnailImageView.snp.makeConstraints { make in
 ~~~
 
 ### 2. Auto Scroll 구현 이슈
-- **문제 상황**</br>
+- **문제 상황** </br>
 Auto Scroll을 제대로 구현하기 위해 1. 화면을 잡고 있을 때 auto Scroll을 멈춘다. 2. 화면을 놓으면 auto Scroll이 시작한다. 3. Infinite Carousel Effect가 적용되어 어떤 방향으로든 무한히 스크롤 가능하다. 4. 스크롤을 해서 Auto Scroll Section이 보이지 않거나 다른 화면으로 전환했을 때 Auto Scroll이 멈춰야 한다. 최소한 4가지 이상의 조건이 필요하다고 생각했습니다. 하지만 직접 구현하는데 상당히 어려움을 느꼈습니다.
 
-- **해결 방법**</br>
+- **해결 방법** </br>
 Pageboy 라이브러리를 활용하여 허무할 정도로 간단하게 해결되었습니다..
 ~~~swift
 final class InfinityCarouselViewController: PageboyViewController {
@@ -582,16 +279,19 @@ final class InfinityCarouselViewController: PageboyViewController {
 <!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
 프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
 
-👍 성취한 점
+👍 **성취한 점**
 1. **200% 개선된 생산성**</br>
 첫 프로젝트였던 모음 프로젝트에서 겪었던 시행착오를 기반으로 200% 개선된 생산성을 가지게 되었습니다.
 
 2. **개선된 UI 메이킹 능력**</br>
 Compositional Layout과 Diffable DataSource를 활용하여 보다 복잡하고 다양한 뷰를 만들 수 있게 되었습니다.
 
-🤔 개선할 점
+3. **소셜 로그인 구현 시 애플 로그인 필수 구현**</br>
+소셜 로그인을 구현 한다면 반드시 애플 로그인도 구현해야 한다는 걸 배우게 되었습니다.
+
+🤔 **개선할 점**
 1. **생산성**</br>
-이전 프로젝트에 비해 많은 개선을 이뤘지만 여전히 생산성이 부족하다고 느꼈습니다. 다음 프로젝트에선 한달 이내로 생산성을 높이겠습니다.
+이전 프로젝트에 비해 많은 개선을 이뤘지만 여전히 생산성이 부족하다고 느꼈습니다. 다음 프로젝트는 한달 안으로 완성하는걸 도전해서 생산성을 끌어올려보겠습니다.
 
 ## 🖼 아이콘 출처 및 저작권 정보
 
