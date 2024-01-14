@@ -1,222 +1,604 @@
-# ShoppingApp
-"하이버"라는 남성 전문 쇼핑앱을 참고하여 만든 앱입니다.
-
-## 📌  주요화면 및 주요기능
-ShoppingApp 사용 영상
-- https://youtu.be/wwq6doWtnNE
--------
-
-#### 홈 화면 - https://youtube.com/shorts/jkuCFmnSQxk?feature=share
-
-![홈_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/f5b2ebb6-f3a3-495e-9ab1-85e25ea822e6) 
-- 배너 섹션은 자동으로 스크롤되며 무한히 회전함
-- 사용자가 배너 섹션을 스크롤할 땐 자동 스크롤이 멈추지만 사용자가 스크롤 하지 않으면 다시 자동 스크롤
-- 상단 탭바를 통해 더 다양한 화면을 구성할 수 있음
-- 찜 버튼은 로그인 후 사용가능
-- 더보기 버튼과 카테고리 섹션은 선택 시 더보기 화면으로 이동
-- 상품 선택 시 네이버 쇼핑 웹사이트로 이동
-- 검색 버튼 선택 시 검색 화면으로 이동
-
-#### 스타일추천 화면 - https://youtube.com/shorts/AAxjKTUXLKA?feature=share
-
-![스타일_추천_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/a8cad637-7545-430b-8ee8-54f4a87bb11e)
-- 하단으로 스크롤하면 계속해서 새로운 상품을 가져옴
-- 최상단에서 당기면 상품 초기화 및 새로고침
-- 상품 선택 시 네이버 쇼핑 웹사이트로 이동
-- 찜 버튼은 로그인 후 사용가능
-- 검색 버튼 선택 시 검색 화면으로 이동
-
-#### 카테고리 화면 - https://youtube.com/shorts/B0Qx54EbJMo?feature=share
-
-![카테고리_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/625de542-a5bc-4d34-87c5-17167524da28)
-- 각 섹션 헤더를 선택하면 하위 상품 카테고리를 보여줌
-- 섹션 헤더의 악세서리 버튼들은 Radio 버튼처럼 동작함
-- 하위 카테고리 선택 시 더보기 화면으로 이동
-
-#### 찜 화면 - https://youtube.com/shorts/s03R-FtJpVI?feature=share
-
-![찜_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/814353ce-3937-453f-b115-fbb914bea5b4)
-![찜_화면_로그인](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/f8d1421e-f459-4423-888e-b3ac79885812)
-- 로그인 시 사용가능
-- 로그인한 상태에서 상품 찜 버튼을 선택 했을 때 찜 화면에 상품들이 추가됌
-- 추천 상품 버튼 선택 시 더보기 화면으로 이동
-- 검색 버튼 선택 시 검색 화면으로 이동
-
-#### 로그인 화면 - https://youtube.com/shorts/cVNS4OdRNXg?feature=share
-
-![로그인_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/9607ea40-d434-4313-9f9c-75c91deb6de0)
-- 로그인 하지 않았을 때 tabBarItem 중 MY 버튼을 선택하면 보여지는 화면
-- 이메일, 비밀번호로 로그인 가능
-- 애플로 로그인 가능 (디바이스에서 실제로 동작함, 시뮬레이터에선 동작하지 않음)
-- 구글로 로그인 가능
-- 회원가입 가능
-
-#### MY 화면 - https://youtube.com/shorts/AjgsIFY_Iv8?feature=share
-
-![MY_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/b82c6b98-5694-42cb-83b4-7f6bfc1593de)
-- 네비게이션바의 타이틀은 로그인 한 사용자의 이메일
-- 최근 본 상품 섹션은 최근 본 상품이 있을 때만 생성되고 없으면 사라짐. 찜 여부도 나타나고 찜 선택해제도 가능
-- 최근 본 상품 섹션 헤더의 악세서리 버튼을 선택하면 최근 본 상품 화면으로 이동
-- 설정 버튼을 선택하면 설정 화면으로 이동
-
-------
-
-### Second Floor Scenes - First Floor Scenes를 거쳐야지 보여지는 화면들
-
-#### 검색 화면 - https://youtube.com/shorts/0IIMLr5KWbw?feature=share
-
-![검색_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/19dd7486-e1a9-463d-ad9a-fcd8187cfe70)
-![검색_결과_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/d30c4c63-2ce6-4cf1-983b-900272c2f50b)
+<!--
 - 최근 검색어 섹션은 최근 검색어가 있으면 생기고 없으면 사라짐. 전체삭제 버튼 선택 시 최근 검색어 섹션 사라짐
 - 최근 검색어 섹션은 가장 최신의 검색어들을 최대 10개를 보여줌. 가장 최근에 검색한 검색어가 맨처음
 - 인기 검색어 섹션은 firebase Realtime database를 사용해서 실시간 순위를 나타냄
 - 검색을 하면 firebase Realtime database에 실시간으로 카운트 증가
 - "검색을 했다"의 기준은 키보드에서 리턴버튼, 최근 검색어 섹션, 인기 검색어 섹션의 셀들을 선택해서 더보기 화면으로 넘어갔을 때
-- searchBar에 텍스트를 입력할 때마다 검색하고 검색 결과 목록 중 하나를 선택하면 웹 화면으로 이동
+-->
 
-#### 웹 화면 - https://youtube.com/shorts/whMbAAKtJfg?feature=share
-
-![웹_처음_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/93254944-0b6a-4944-9945-c5fc6acb4a2a)
-![웹_최종_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/f2cd2ac2-7470-4580-b2ab-f007da8ad890)
-- WKWebView를 사용함
-
-#### 최근 본 상품 화면 - https://youtube.com/shorts/4S1yNhC85qs?feature=share
-
-![최근_본_상품_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/5c9efa88-b6fb-4b35-9051-6b734d9d838a)
-- 카테고리가 아닌 상품 자체를 사용자가 선택하면 UserDefaults에 해당 상품이 저장되고 해당 화면에서 UserDefaults에 있는 상품들을 보여줌
-- 삭제 가능
-- 찜 여부 가능 (찜 하기, 찜 취소)
-- 중복되지 않고 가장 마지막에 선택한 상품이 가장 먼저 보여짐
-
-#### 더보기 화면 - https://youtube.com/shorts/UHOaBkWkhRA?feature=share
-
-![더보기_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/28bf78c6-fbc5-4fa2-bf67-8a7ad701f089)
-- 홈 화면에 카테고리 섹션, 카테고리 화면, 검색을 통해서 보여지는 화면
-- 하단으로 스크롤하면 계속해서 새로운 상품을 가져옴
-- 최상단에서 당기면 상품 초기화 및 새로고침
-- 상품 선택 시 네이버 쇼핑 웹사이트로 이동
-- 찜 버튼은 로그인 후 사용가능
-- 검색 버튼 선택 시 검색 화면으로 이동
-
-#### 설정 화면 - https://youtube.com/shorts/ZcCF77iyC6A?feature=share
-
-![설정_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/0677e2ea-3210-4d7c-8516-2b4188b1fd21)
-- 로그아웃 버튼 선택 시 로그아웃
-
-#### 회원가입 화면 - https://youtube.com/shorts/G3GWvFOA0V4?feature=share
-
-![회원가입_이메일비밀번호_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/91e4d6bb-eedc-4735-973c-eb4df74685f3)
-![회원가입_이름번호_화면](https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/a48b25f2-9147-4e75-ab3d-1b8da3753612)
-- 이메일, 비밀번호를 통한 회원가입
-- FirebaseAuth를 사용
-- 이메일, 비밀번호, 이름, 휴대폰 번호 모두 정규식을 통과해야 사용가능
-- 이메일은 중복확인까지 해야함 (FireStore query를 이용해서 중복체크)
-- 정규식에 통과하지 못하면 이유를 보여줌
-- 키보드가 올라가고 내려갈때 하단의 버튼도 같이 움직임
-
-------
-
-
-# 모음 - 서울 모범음식점 찾기
+# NETPING
 
 <p align="center">
-  모음은 서울시에서 지정한 일반음식점 및 집단급식소 중 위생관리 및 고객 서비스 수준이 우수한 업소를 찾아볼 수 있는 서비스입니다.
+  네이버 쇼핑 API를 활용하여 만든 쇼핑 앱입니다.
 </p>
-
   
 <p align="center">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f7674e21-7dab-4d82-b0f3-17434679f683" width="130">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/e50718e4-8afc-4c1d-bbce-ef2a8aca5024" width="130">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/90ae0dcd-99ab-462b-b0a1-b3653c8827cc" width="130">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/a7fb2876-dc56-4ce7-a9cc-1c5dd1e99f89" width="130">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/0db88594-bb32-46ec-8346-3ce1b01da748" width="130">
-  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/184e3b7d-8b74-4228-b2f3-767c618a9e7d" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/db4aefe5-30f4-4446-a98e-42c38261a164" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/98f10dba-cb3c-4c91-8754-e60e85691e63" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f76f6dbd-843c-444c-b299-7f3e7cc9dc1e" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/4d2000e7-1973-4ef2-991c-8a848e92abe1" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/4a120d90-ca6f-46ff-840b-7a4aeecba901" width="130">
+  <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/fb21d33c-9ba7-4b4f-b447-3d8d311e81aa" width="130">
+  
+|홈|검색|찜|최근 본 상품|
+|:-:|:-:|:-:|:-:|
+|![홈](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/f6dd7d9d-04d6-4cb1-966e-75f83a5f10a2)|![검색](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/c1a2cd45-297b-4a33-b5c7-2a5c500bede0)|![찜](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/63584591-40da-4c71-bc91-aba6abccf07e)|
+![최근_본_상품](https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/17f8f139-ebc0-419b-accf-1bc09975b2f5)|
 </p>
+
 
 ## 목차
 
-- [🤝 개발 인원](#-개발-인원)
-- [⏰ 개발 기간](#-개발-기간) 
 - [🚀 주요 기능](#-주요-기능) 
-- [💻 개발 환경 및 기술 스택](#-개발-환경-및-기술-스택)
+- [💻 기술 스택](#-기술-스택)
+- [📱 서비스](#-서비스)
 - [🚧 기술적 도전](#-기술적-도전)
 - [🛠 트러블 슈팅](#-트러블-슈팅)
 - [📝 회고](#-회고)
 - [🖼 아이콘 출처 및 저작권 정보](#-아이콘-출처-및-저작권-정보)
 
-## 🤝 개발 인원
-
-- **인원**: 1인
-
-## ⏰ 개발 기간
-
-- 2023년 3월 ~ 6월 (3개월)
-
 ## 🚀 주요 기능
 
-- **Auto Scroll**
-- **Carousel Effect CollectionView**
-- **Modern Colloection View**
-- **Expandable Cell**
-- **상품 찜**
-- **상품 검색**
-- **페이지네이션**
-- **이메일 회원가입**
-- **소셜 로그인**
+- **Compositional Layout 활용해 다양하고 복잡한 레이아웃 구현**
+- **Pageboy 라이브러리 기반 Auto Scroll 구현**
+- **Pageboy 라이브러리 기반 Infinite Carousel Effect 구현**
+- **Diffable DataSource를 활용해 Expandable Cell 구현**
+- **Firebase RealtimeDataBase를 활용해 상품 찜 구현**
+- **Firebase Authentication 기반 이메일 회원가입 구현**
+- **Firebase Authentication 기반 소셜 로그인 구현**
 
-## 💻 개발 환경 및 기술 스택
+## 💻 기술 스택
+
 - 언어 : Swift
-- IDE : Xcode
-- 디자인 패턴 : MVP
-- iOS Deployment Target : 15.0
+- 디자인 패턴 : MVP, Singleton
 - UI : UIKit, CodeBase UI, AutoLayout, SnapKit, Compositional Layout
 - 네트워크 : Alamofire
-- 데이터베이스: FirebaseRealtimeDataBase, FirebaseFireStore
-- 저장소 : FirebaseStorage
-- 인증 : FirebaseAuthentication
+- 데이터베이스: Firebase RealtimeDataBase, Firebase FireStore
+- 인증 : Firebase Authentication
 - 의존성 관리 : CocoaPods, SPM
-- 그 외 라이브러리 및 프레임워크 : Kingfisher, Tabman, TTGTagCollectionView, Toast
-  
+- 그 외 라이브러리 및 프레임워크 : WebKit, Kingfisher, Tabman, TTGTagCollectionView, Toast
+
+## 📱 서비스
+
+- 최소 버전 : iOS 15.0
+- 개발 인원 : 1인
+- 개발 기간 : 2023년 3월 ~ 2023년 6월 (3개월)
 
 ## 🚧 기술적 도전
 
 <!-- 프로젝트를 진행하면서 겪은 기술적인 도전과 어떻게 해결했는지에 대한 설명을 추가한다. -->
-### 1. Modern Colloection View
+### 1. Compositional Layout
 - **도전 상황**</br>
-다양한 레이아웃을 가진
+다양한 레이아웃을 가진 복잡한 화면을 구성하고 싶었습니다. TableView + CollectionView의 조합으로 구성하는데 코드도 굉장히 복잡해지고 핸들링하는데 어려움을 느꼈습니다. 그래서 Compositional Layout을 도입해봤습니다.
 
-- **해결 방법**</br>
+- **도전 결과**</br>
+단일 collectionView만으로 다양하고 복잡한 레이아웃을 상당히 직관적으로 계층을 그릴 수 있었습니다. 각각의 레이아웃 요소들을 모듈화 할 수 있었기에 레이아웃이 복잡해지더라도 가독성이 향상되어 유지보수가 쉬워졌습니다.
+~~~swift
+/// HomeViewController에 collectionView의  layout
+enum HomeCollectionViewLayout {
+    case `default`
 
+    /// layout 생성
+    var createLayout: UICollectionViewLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment -> NSCollectionLayoutSection? in
+
+            let section = HomeCollectionViewSectionKind(
+                rawValue: sectionIndex
+            )
+
+            switch section {
+            case .메인배너:
+                return self.createMainBannerSection()
+            case .카테고리:
+                return self.createCategorySection()
+            case .오늘의랭킹:
+                return self.createRankSection()
+            case .오늘구매해야할제품:
+                return self.createTwoColumGridSection()
+            case .이주의브랜드이슈:
+                return self.createBrandOfTheWeekSection()
+            case .지금눈에띄는후드티:
+                return self.createTwoColumGridSection()
+            case .서브배너:
+                return self.createSubBannerSection()
+            case .일초만에사로잡는나의취향:
+                return self.createTwoColumGridSection()
+            case .none:
+                fatalError(
+                    "레이아웃을 설정할 수 없는 섹션입니다."
+                )
+            }
+        }
+
+        return layout
+    }
+}
+~~~
+~~~swift
+// Section
+private extension HomeCollectionViewLayout {
+
+    /// 메인배너 섹션 layout.
+    /// 하나의 열에 여러 컬럼을 가진 형태
+    func createMainBannerSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.65)
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+
+        return section
+    }
+
+    /// 카테고리 섹션 layout.
+    /// 다섯개의 컬럼을 가진 그리드 형태
+    func createCategorySection() -> NSCollectionLayoutSection {
+        let spacing: CGFloat = 16.0
+
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.2),
+            heightDimension: .fractionalHeight(1.0)
+        )
+
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalWidth(0.2)
+        )
+
+        let group: NSCollectionLayoutGroup
+        if #available(iOS 16.0, *) {
+            group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: groupSize,
+                repeatingSubitem: item,
+                count: 5
+            )
+        } else {
+            group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: groupSize,
+                subitem: item,
+                count: 5
+            )
+        }
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(
+            group: group
+        )
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: spacing,
+            leading: spacing,
+            bottom: spacing,
+            trailing: spacing
+        )
+        section.interGroupSpacing = spacing
+
+        let sectionFooter = createClearFooter()
+        section.boundarySupplementaryItems = [sectionFooter]
+
+        return section
+    }
+
+    /// 오늘의랭킹 섹션 layout
+    /// 하나의 열에 여러 컬럼을 가진 형태
+    func createRankSection() -> NSCollectionLayoutSection {
+        let contentsInset: CGFloat = 8.0
+
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: .fractionalHeight(0.4)
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+        group.contentInsets = .init(
+            top: 0,
+            leading: contentsInset,
+            bottom: 0,
+            trailing: contentsInset
+        )
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .continuous
+
+        let sectionHeader = createSectionNameHeader()
+        let sectionFooter = createClearFooter()
+        section.boundarySupplementaryItems = [
+            sectionHeader,
+            sectionFooter
+        ]
+
+        return section
+    }
+
+    /// 서브배너 섹션 layout.
+    /// 하나의 열에 여러 컬럼을 가진 형태
+    func createSubBannerSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(1.0)
+        )
+
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.2)
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitems: [item]
+        )
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.orthogonalScrollingBehavior = .groupPagingCentered
+
+        let sectionHeader = createClearHeader()
+        let sectionFooter = createClearFooter()
+
+        section.boundarySupplementaryItems = [
+            sectionHeader,
+            sectionFooter
+        ]
+
+        return section
+    }
+
+    /// 오늘구매해야할제품, 지금눈에띄는후드티, 일초만에사로잡는나의취향
+    /// 섹션 layout
+    /// 두개의 컬럼을 가진 그리드 형태
+    func createTwoColumGridSection() -> NSCollectionLayoutSection {
+        let contentsInset: CGFloat = 16.0
+        let spacing: CGFloat = 16.0
+
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(0.5),
+            heightDimension: .fractionalHeight(1.0)
+        )
+
+        let item = NSCollectionLayoutItem(
+            layoutSize: itemSize
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.4)
+        )
+
+        let group = NSCollectionLayoutGroup.horizontal(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 2
+        )
+        group.interItemSpacing = .fixed(spacing)
+        group.contentInsets = .init(
+            top: 0,
+            leading: contentsInset,
+            bottom: 0,
+            trailing: contentsInset
+        )
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.interGroupSpacing = spacing
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: contentsInset,
+            trailing: 0
+        )
+
+        let sectionHeader = createSectionNameHeader()
+        let sectionFooter = createMoreFooter()
+        section.boundarySupplementaryItems = [
+            sectionHeader,
+            sectionFooter
+        ]
+
+        return section
+    }
+
+    /// 이주의브랜드이슈 섹션 layout
+    /// 하나의 컬럼에 3개의 열이 있는 형태
+    func createBrandOfTheWeekSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.3)
+        )
+
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let contentsInset: CGFloat = 16.0
+        item.contentInsets = .init(
+            top: 0,
+            leading: contentsInset,
+            bottom: contentsInset,
+            trailing: contentsInset
+        )
+
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.6)
+        )
+
+        let group = NSCollectionLayoutGroup.vertical(
+            layoutSize: groupSize,
+            subitem: item,
+            count: 3
+        )
+
+        let spacing: CGFloat = 16.0
+        group.interItemSpacing = .fixed(spacing)
+
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(
+            top: 0,
+            leading: 0,
+            bottom: contentsInset,
+            trailing: 0
+        )
+        section.orthogonalScrollingBehavior = .groupPaging
+
+        let sectionHeader = createSectionNameHeader()
+        let sectionFooter = createMoreFooter()
+        section.boundarySupplementaryItems = [
+            sectionHeader,
+            sectionFooter
+        ]
+
+        return section
+    }
+
+}
+~~~
+~~~swift
+// Supplementary
+private extension HomeCollectionViewLayout {
+
+    /// 여백용 header
+    func createClearHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.05)
+        )
+
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+
+        return header
+    }
+
+    /// sectionName용 header
+    func createSectionNameHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.1)
+        )
+
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+
+        return header
+    }
+
+    /// 여백용 footer
+    func createClearFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.05)
+        )
+
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize,
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottom
+        )
+
+        return footer
+    }
+
+    /// more용 footer
+    func createMoreFooter() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let footerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .fractionalHeight(0.1)
+        )
+
+        let footer = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: footerSize,
+            elementKind: UICollectionView.elementKindSectionFooter,
+            alignment: .bottom
+        )
+
+        return footer
+    }
+
+}
+~~~
+
+### 2. Diffable DataSource를 활용해 Expandable Cell 구현
+
+- **도전 상황**</br>
+Expandable Cell을 구현하고 싶었습니다.
+
+- **도전 결과**</br>
+<P>
+  <img src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1d8a747d-a42e-44fd-92c0-8378673b7619" width="130"> Diffable DataSource와 Notification을 활용하여 구현에 성공했습니다. 구현 내용은 아래와 같습니다.
+</P>
+
+~~~swift
+func didTapOutLineButton(_ sender: UIButton) {
+    // 버튼의 tag값으로 현재 섹션을 찾고
+    guard let section = dataSource.sectionIdentifier(for: sender.tag) else {return}
+
+    // 전체 스냡삿이 아닌 섹션 스냅샷 생성
+    var sectionSnapshot = NSDiffableDataSourceSectionSnapshot<CategoryItem>()
+
+    // 버튼이 선택되어 있다면
+    if sender.isSelected {
+        // 1. 기존 스냅샷을 지운다.
+        sectionSnapshot.deleteAll()
+
+        var snapshot = NSDiffableDataSourceSnapshot<CategoryCollectionViewSectionKind, CategoryItem>()
+        snapshot.appendSections(CategoryCollectionViewSectionKind.allCases)
+
+        // 2. item을 제외하고 section들만 추가해서 스냅샷을 적용한다.
+        dataSource.apply(sectionSnapshot, to: section, animatingDifferences: false)
+    }
+
+    // 버튼이 선택되어 있지 않다면
+    else {
+        // 1. 기존에 선택되어 있는 섹션의 스냅샷을 지운다.
+        NotificationCenter.default.post(
+            name: Notification.Name.likeRadioButton,
+            object: sender.tag,
+            userInfo: nil
+        )
+
+        // 2. section들을 추가하고
+        var snapshot = NSDiffableDataSourceSnapshot<CategoryCollectionViewSectionKind, CategoryItem>()
+        snapshot.appendSections(CategoryCollectionViewSectionKind.allCases)
+        dataSource.apply(snapshot, animatingDifferences: false)
+
+        let items = section.categorys
+
+        // 3. 해당 섹션에 아이템을 추가한다.
+        sectionSnapshot.append(items)
+
+        // 4. 스냅샷 적용
+        dataSource.apply(sectionSnapshot, to: section, animatingDifferences: true)
+    }
+
+    sender.toggle()
+}
+~~~
 
 ## 🛠 트러블 슈팅
 
 <!-- 프로젝트 중 발생한 문제와 그 해결 방법에 대한 내용을 기록한다. -->
-### 1. 네트워크 응답 데이터 UI 바인딩 이슈
+### 1. 이미지 뷰에 cornerRadius와 shadow 동시 설정 불가 이슈
 - **문제 상황**</br>
-
+이미지뷰에 cornerRadius와 shadow를 동시에 설정하고 싶었습니다. 하지만 clipsToBounds를 true로 설정하는 순간 cornerRadius는 적용되어도 shadow는 적용이 되지 않았습니다.
 
 - **해결 방법**</br>
+먼저 원인은 clipsToBounds를 true로 설정하면 레이어 외부의 모든 항목을 잘라냈기 때문입니다. 레이어 외부에 그림자가 그려지므로 그림자도 잘리게 됩니다. 따라서 이 두 가지 효과를 동시에 사용할 수 없었습니다.
+그래서 적용한 방법은 shadow를 적용한 뷰 위에 clipsToBounds를 적용한 ImageView를 추가하는 형태로 해결할 수 있었습니다.
 
+~~~swift
+private lazy var thumnailImageViewShadowView: UIView = {
+    let view = UIView()
+    shadowOffset = CGSize(width: 1, height: 1)
+    shadowOpacity = 0.5
+    shadowColor = UIColor.gray.cgColor
+    return view
+}()
+
+private lazy var thumnailImageView: UIImageView = {
+    let imageView = UIImageView()
+    imageView.contentMode = .scaleToFill
+    imageView.layer.cornerRadius = 16.0
+    imageView.clipsToBounds = true
+
+    return imageView
+}()
+~~~
+~~~swift
+thumnailImageViewShadowView.addSubview(thumnailImageView)
+
+thumnailImageViewShadowView.snp.makeConstraints { make in
+    make.top.equalToSuperview()
+    make.leading.equalToSuperview()
+    make.trailing.equalToSuperview()
+}
+
+thumnailImageView.snp.makeConstraints { make in
+    make.edges.equalToSuperview()
+}
+~~~
+
+### 2. Auto Scroll 구현 이슈
+- **문제 상황**</br>
+Auto Scroll을 제대로 구현하기 위해 1. 화면을 잡고 있을 때 auto Scroll을 멈춘다. 2. 화면을 놓으면 auto Scroll이 시작한다. 3. Infinite Carousel Effect가 적용되어 어떤 방향으로든 무한히 스크롤 가능하다. 4. 스크롤을 해서 Auto Scroll Section이 보이지 않거나 다른 화면으로 전환했을 때 Auto Scroll이 멈춰야 한다. 최소한 4가지 이상의 조건이 필요하다고 생각했습니다. 하지만 직접 구현하는데 상당히 어려움을 느꼈습니다.
+
+- **해결 방법**</br>
+Pageboy 라이브러리를 활용하여 허무할 정도로 간단하게 해결되었습니다..
+~~~swift
+final class InfinityCarouselViewController: PageboyViewController {
+
+    func configurePageboyViewController() {
+        isInfiniteScrollEnabled = true // 무한 스크롤 구현
+    }
+
+    func configureAutoScroller() {
+        // 멈췄을 때 다시 시작할지 여부
+        autoScroller.restartsOnScrollEnd = true
+    }
+
+    func autoScroll(_ duration: TimeInterval) {
+        // autoScroll 간격
+        autoScroller.enable(
+            withIntermissionDuration: .custom(duration: duration)
+        )
+    }
+
+}
+~~~
 
 ## 📝 회고
-
 <!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
 프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
 
 👍 성취한 점
-1. **독학으로 생애 첫 프로젝트 도전 성공**</br>
+1. **200% 개선된 생산성**</br>
+첫 프로젝트였던 모음 프로젝트에서 겪었던 시행착오를 기반으로 200% 개선된 생산성을 가지게 되었습니다.
 
+2. **개선된 UI 메이킹 능력**</br>
+Compositional Layout과 Diffable DataSource를 활용하여 보다 복잡하고 다양한 뷰를 만들 수 있게 되었습니다.
 
 🤔 개선할 점
-1. **Massive View Controller**</br>
-
+1. **생산성**</br>
+이전 프로젝트에 비해 많은 개선을 이뤘지만 여전히 생산성이 부족하다고 느꼈습니다. 다음 프로젝트에선 한달 이내로 생산성을 높이겠습니다.
 
 ## 🖼 아이콘 출처 및 저작권 정보
 
 이 프로젝트에서 사용된 아이콘들은 아래와 같은 출처에서 제공되었습니다. 각 아이콘의 저작권은 해당 제작자에게 있습니다. 아이콘을 사용하려면 각 아이콘의 출처로 이동하여 저작권 관련 정보를 확인하세요.
 
-- [Food icons](https://www.flaticon.com/free-icons/food) by justicon - Flaticon
-- [찐 생선 아이콘](https://www.flaticon.com/kr/free-icons/-) by surang - Flaticon
 출처 <a href="https://kr.freepik.com/free-vector/hand-drawn-shopping-horizontal-sale-banner_41538524.htm#query=horizontal%20banner&position=30&from_view=search&track=ais">Freepik</a>
-
+</br>
 출처 <a href="https://kr.freepik.com/free-vector/flat-design-horizontal-sale-banner_40125112.htm#query=horizontal%20banner&position=49&from_view=search&track=ais">Freepik</a>
