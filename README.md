@@ -37,13 +37,12 @@
 
 ## 🚀 주요 기능
 
-- Compositional Layout 활용해 다양하고 복잡한 레이아웃 구현
-- Pageboy 라이브러리 기반 Auto Scroll 구현
-- Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
-- Diffable DataSource를 활용해 Expandable Cell 구현
-- Firebase RealtimeDataBase를 활용해 상품 찜 구현
-- Firebase Authentication 기반 이메일 회원가입 구현
-- Firebase Authentication 기반 소셜 로그인 구현
+- Pageboy 라이브러리 기반 Auto Scroll 기능 제공
+- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능 제공
+- Diffable DataSource를 활용해 Expandable Cell 기능 제공
+- Firebase RealtimeDataBase를 활용해 상품 찜 기능 제공
+- Firebase Authentication 기반 이메일 회원가입 기능 제공
+- Firebase Authentication 기반 소셜 로그인 기능 제공
 
 ## 💻 기술 스택
 
