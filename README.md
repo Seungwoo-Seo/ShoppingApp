@@ -9,7 +9,7 @@
 # NETPING
 
 <p>
-  네이버 쇼핑 API를 기반으로 하이버라는 남성 전문 쇼핑 앱 레이아웃을 참고하여 만든 쇼핑 앱입니다.
+  네이버 쇼핑 API를 기반으로 만든 쇼핑 앱입니다.
 </p>
   
 <p align="center">
@@ -27,33 +27,38 @@
 
 ## 목차
 
-- [🚀 주요 기능](#-주요-기능) 
+- [🚀 주요 기능](#-주요-기능)
+- [🛠 구현 기술](#-구현-기술)
 - [💻 기술 스택](#-기술-스택)
 - [📱 서비스](#-서비스)
 - [🚧 기술적 도전](#-기술적-도전)
-- [🛠 트러블 슈팅](#-트러블-슈팅)
+- [🚨 트러블 슈팅](#-트러블-슈팅)
 - [📝 회고](#-회고)
 - [🖼 아이콘 출처 및 저작권 정보](#-아이콘-출처-및-저작권-정보)
 
 ## 🚀 주요 기능
 
-- Pageboy 라이브러리 기반 Auto Scroll 기능 제공
-- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능 제공
+- 상품 목록 및 상세 정보 조회
+- 카테고리 및 스타일 추천
+- 찜 목록 및 최근 본 상품
+- 회원인증
+- 소셜로그인
+
+## 🛠 구현 기술
+
+- offset 기반의 페이지네이션 구현
+- Pageboy 라이브러리 기반 Auto Scroll 기능 구현
+- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능 구현
 - Diffable DataSource를 활용해 Expandable Cell 기능 제공
-- Firebase RealtimeDataBase를 활용해 상품 찜 기능 제공
-- Firebase Authentication 기반 이메일 회원가입 기능 제공
-- Firebase Authentication 기반 소셜 로그인 기능 제공
 
 ## 💻 기술 스택
 
-- 언어 : Swift
-- 디자인 패턴 : MVP, Singleton
-- UI : UIKit, CodeBase UI, AutoLayout, SnapKit, Compositional Layout
-- 네트워크 : Alamofire
-- 데이터베이스: Firebase RealtimeDataBase, Firebase FireStore
-- 인증 : Firebase Authentication
-- 의존성 관리 : CocoaPods, SPM
-- 그 외 라이브러리 및 프레임워크 : WebKit, Kingfisher, Tabman, TTGTagCollectionView, Toast
+- Swift
+- MVP, Singleton
+- UIKit, WebKit
+- Codable, CodeBase UI, AutoLayout, Compositional Layout, Diffable DataSource
+- Alamofire, SnapKit, Kingfisher, Tabman, TTGTagCollectionView, Toast
+- Firebase
 
 ## 📱 서비스
 
@@ -203,7 +208,7 @@ func didTapOutLineButton(_ sender: UIButton) {
 }
 ~~~
 
-## 🛠 트러블 슈팅
+## 🚨 트러블 슈팅
 
 <!-- 프로젝트 중 발생한 문제와 그 해결 방법에 대한 내용을 기록한다. -->
 ### 1. 이미지 뷰에 cornerRadius와 shadow 동시 설정 불가 이슈
@@ -279,21 +284,17 @@ final class InfinityCarouselViewController: PageboyViewController {
 프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
 
 👍 **성취한 점**
-1. **200% 개선된 생산성**</br>
-첫 프로젝트였던 모음 프로젝트에서 겪었던 시행착오를 기반으로 200% 개선된 생산성을 가지게 되었습니다.
+1. Compositional Layout과 를 활용하여 보다 복잡하고 다양한 뷰를 만들 수 있게 되었습니다.
+2. Diffable DataSource
 
-2. **개선된 UI 메이킹 능력**</br>
-Compositional Layout과 Diffable DataSource를 활용하여 보다 복잡하고 다양한 뷰를 만들 수 있게 되었습니다.
-
-3. **소셜 로그인 구현 시 애플 로그인 필수 구현**</br>
-소셜 로그인을 구현 한다면 반드시 애플 로그인도 구현해야 한다는 걸 배우게 되었습니다.
+<!--
+usecase, repository에 protocol을 적용하여 인터페이스로 의존성 역전, where(Conditionally Conforming)을 사용하여 특정한 프로토콜로 제한
+CRUD 기능별 Service protocol 정의, 필요에 따라 채택하여 usecase 사용
+RXSwift와 Input/Output 패턴으로 코드의 가독성 향상, 비동기 데이터 처리
+-->
 
 🤔 **개선할 점**
-1. **생산성**</br>
-이전 프로젝트에 비해 많은 개선을 이뤘지만 여전히 생산성이 부족하다고 느꼈습니다. 다음 프로젝트는 한달 안으로 완성하는걸 도전해서 생산성을 끌어올려보겠습니다.
 
-2. **BDD 기반의 Unit Test**</br>
-이번 프로젝트를 통해 Unit Test와 BDD(Given, when, then) 방법론에 대해서도 학습했습니다. 확실히 Presenter로 인해 테스트 코드를 작성하는 게 용이했지만 굳이?라는 생각이 강하게 들었던 거 같습니다. 하지만 결국 필요에 의해서 만들어진 것일 테니 프로젝트 규모가 더 커지면 적용을 해봐야겠습니다.
 
 ## 🖼 아이콘 출처 및 저작권 정보
 
