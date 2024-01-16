@@ -41,24 +41,23 @@
 - 상품 목록 및 상세 정보 조회
 - 카테고리 및 스타일 추천
 - 찜 목록 및 최근 본 상품
-- 회원인증
-- 소셜로그인
+- 회원인증 및 소셜로그인
 
 ## 🛠 구현 기술
 
-- offset 기반의 페이지네이션 구현
-- Pageboy 라이브러리 기반 Auto Scroll 기능 구현
-- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능 구현
-- Diffable DataSource를 활용해 Expandable Cell 기능 제공
+- offset 기반의 페이지네이션
+- Pageboy 라이브러리 기반 Auto Scroll 기능
+- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능
+- Diffable DataSource를 활용해 Expandable Cell 기능
 
 ## 💻 기술 스택
 
-- Swift
-- MVP, Singleton
-- UIKit, WebKit
-- Codable, CodeBase UI, AutoLayout, Compositional Layout, Diffable DataSource
-- Alamofire, SnapKit, Kingfisher, Tabman, TTGTagCollectionView, Toast
-- Firebase
+- `Swift`
+- `MVP`, `Singleton`
+- `UIKit`, `WebKit`
+- `Codable`, `CodeBase UI`, `AutoLayout`, `Compositional Layout`, `Diffable DataSource`
+- `Alamofire`, `SnapKit`, `Kingfisher`, `Tabman`, `TTGTagCollectionView`, `Toast`
+- `Firebase`
 
 ## 📱 서비스
 
@@ -71,7 +70,7 @@
 <!-- 프로젝트를 진행하면서 겪은 기술적인 도전과 어떻게 해결했는지에 대한 설명을 추가한다. -->
 ### 1. Compositional Layout
 - **도전 상황**</br>
-다양한 레이아웃을 가진 복잡한 화면을 구성하고 싶었습니다. TableView + CollectionView의 조합으로 구성하는데 코드도 굉장히 복잡해지고 핸들링하는데 어려움을 느꼈습니다. 그래서 Compositional Layout을 도입해봤습니다.
+다양한 레이아웃을 가진 복잡한 화면을 구성하고 싶었습니다. TableView + CollectionView의 조합으로 구성하는데 코드도 굉장히 복잡해지고 핸들링하는데 어려움을 느꼈습니다. 그래서 `Compositional Layout`을 도입해봤습니다.
 
 - **도전 결과**</br>
 단일 collectionView만으로 다양하고 복잡한 레이아웃을 상당히 직관적으로 계층을 그릴 수 있었습니다. 각각의 레이아웃 요소들을 모듈화 할 수 있었기에 레이아웃이 복잡해지더라도 가독성이 향상되어 유지보수가 쉬워졌습니다.
@@ -284,11 +283,11 @@ final class InfinityCarouselViewController: PageboyViewController {
 프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
 
 👍 **성취한 점**
-1. Compositional Layout과 를 활용하여 보다 복잡하고 다양한 뷰를 만들 수 있게 되었습니다.
-2. Diffable DataSource
+1. `Compositional Layout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
+2. `Diffable DataSource`를 적용하여 index error
+3. 섹션과 아이템을 식별자를
 
 <!--
-usecase, repository에 protocol을 적용하여 인터페이스로 의존성 역전, where(Conditionally Conforming)을 사용하여 특정한 프로토콜로 제한
 CRUD 기능별 Service protocol 정의, 필요에 따라 채택하여 usecase 사용
 RXSwift와 Input/Output 패턴으로 코드의 가독성 향상, 비동기 데이터 처리
 -->
