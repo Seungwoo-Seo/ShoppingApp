@@ -39,20 +39,17 @@
 ## 🛠 구현 기술
 
 - `offset` 기반의 `페이지네이션` 구현
+- `UserDefaults`를 활용해 `최근 검색어 CRUD` 구현
+- `FirebaseRealtimeDatabase`를 활용해 `인기 검색어` 구현
 - `FirebaseRealtimeDatabase`를 활용해 `찜 CRUD`와 `최근 본 상품 CRUD` 구현
 - `DiffableDataSource`를 활용해 `Expandable Cell` 구현
-
-<!--
-- Pageboy 라이브러리 기반 Auto Scroll 구현
-- Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
--->
 
 ## 💻 기술 스택
 
 - `Swift`
 - `MVP`, `Singleton`
 - `UIKit`, `WebKit`
-- `Codable`, `CodeBase UI`, `AutoLayout`, `Compositional Layout`, `Diffable DataSource`
+- `Codable`, `CodeBase UI`, `AutoLayout`, `CompositionalLayout`, `DiffableDataSource`
 - `Alamofire`, `SnapKit`, `Kingfisher`, `Tabman`, `TTGTagCollectionView`, `Toast`
 - `Firebase`
 
