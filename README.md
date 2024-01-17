@@ -34,15 +34,18 @@
 - 카테고리 및 스타일 추천
 - 찜 목록 및 최근 본 상품
 - 회원인증 및 소셜로그인
+- Auto Scroll
 
 ## 🛠 구현 기술
 
-- offset 기반의 페이지네이션 구현
+- `offset` 기반의 `페이지네이션` 구현
+- `FirebaseRealtimeDatabase`를 활용해 `찜 CRUD`와 `최근 본 상품 CRUD` 구현
+- `DiffableDataSource`를 활용해 `Expandable Cell` 구현
+
 <!--
 - Pageboy 라이브러리 기반 Auto Scroll 구현
 - Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
 -->
-- Diffable DataSource를 활용해 Expandable Cell 구현
 
 ## 💻 기술 스택
 
@@ -148,11 +151,11 @@ private extension HomeCollectionViewLayout {
 ### 2. Diffable DataSource를 활용해 Expandable Cell 구현
 
 - **도전 상황**</br>
-Expandable Cell을 구현하고 싶었습니다.
+`Expandable Cell`을 구현하고 싶었습니다.
 
 - **도전 결과**</br>
 <img src="https://github.com/Seungwoo-Seo/ShoppingApp/assets/72753868/1d8a747d-a42e-44fd-92c0-8378673b7619" width="130"></br>
-Diffable DataSource와 Notification을 활용하여 구현에 성공했습니다. 구현 내용은 아래와 같습니다.
+`DiffableDataSource`와 `Notification`을 활용하여 구현에 성공했습니다. 구현 내용은 아래와 같습니다.
 
 ~~~swift
 func didTapOutLineButton(_ sender: UIButton) {
@@ -246,10 +249,10 @@ thumnailImageView.snp.makeConstraints { make in
 
 ### 2. Auto Scroll 구현 이슈
 - **문제 상황** </br>
-Auto Scroll을 제대로 구현하기 위해 1. 화면을 잡고 있을 때 auto Scroll을 멈춘다. 2. 화면을 놓으면 auto Scroll이 시작한다. 3. Infinite Carousel Effect가 적용되어 어떤 방향으로든 무한히 스크롤 가능하다. 4. 스크롤을 해서 Auto Scroll Section이 보이지 않거나 다른 화면으로 전환했을 때 Auto Scroll이 멈춰야 한다. 최소한 4가지 이상의 조건이 필요하다고 생각했습니다. 하지만 직접 구현하는데 상당히 어려움을 느꼈습니다.
+`Auto Scroll`을 제대로 구현하기 위해 1. 화면을 잡고 있을 때 auto Scroll을 멈춘다. 2. 화면을 놓으면 auto Scroll이 시작한다. 3. Infinite Carousel Effect가 적용되어 어떤 방향으로든 무한히 스크롤 가능하다. 4. 스크롤을 해서 Auto Scroll Section이 보이지 않거나 다른 화면으로 전환했을 때 Auto Scroll이 멈춰야 한다. 최소한 4가지 이상의 조건이 필요하다고 생각했습니다. 하지만 직접 구현하는데 상당히 어려움을 느꼈습니다.
 
 - **해결 방법** </br>
-Pageboy 라이브러리를 활용하여 허무할 정도로 간단하게 해결되었습니다..
+`Pageboy` 라이브러리를 활용하여 허무할 정도로 간단하게 해결되었습니다..
 ~~~swift
 final class InfinityCarouselViewController: PageboyViewController {
 
