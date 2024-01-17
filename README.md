@@ -1,8 +1,6 @@
 # NETPING
 
-<p>
-  네이버 쇼핑 API를 기반으로 만든 쇼핑 앱입니다.
-</p>
+> 네이버 쇼핑 API를 기반으로 만든 쇼핑 앱입니다.
   
 <p align="center">
   <img src="https://github.com/Seungwoo-Seo/ExemplaryRestaurantIB/assets/72753868/db4aefe5-30f4-4446-a98e-42c38261a164" width="130">
