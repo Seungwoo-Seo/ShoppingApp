@@ -1,11 +1,3 @@
-<!--
-- 최근 검색어 섹션은 최근 검색어가 있으면 생기고 없으면 사라짐. 전체삭제 버튼 선택 시 최근 검색어 섹션 사라짐
-- 최근 검색어 섹션은 가장 최신의 검색어들을 최대 10개를 보여줌. 가장 최근에 검색한 검색어가 맨처음
-- 인기 검색어 섹션은 firebase Realtime database를 사용해서 실시간 순위를 나타냄
-- 검색을 하면 firebase Realtime database에 실시간으로 카운트 증가
-- "검색을 했다"의 기준은 키보드에서 리턴버튼, 최근 검색어 섹션, 인기 검색어 섹션의 셀들을 선택해서 더보기 화면으로 넘어갔을 때
--->
-
 # NETPING
 
 <p>
@@ -45,10 +37,10 @@
 
 ## 🛠 구현 기술
 
-- offset 기반의 페이지네이션
-- Pageboy 라이브러리 기반 Auto Scroll 기능
-- Pageboy 라이브러리 기반 Infinite Carousel Effect 기능
-- Diffable DataSource를 활용해 Expandable Cell 기능
+- offset 기반의 페이지네이션 구현
+- Pageboy 라이브러리 기반 Auto Scroll 구현
+- Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
+- Diffable DataSource를 활용해 Expandable Cell 구현
 
 ## 💻 기술 스택
 
@@ -280,20 +272,11 @@ final class InfinityCarouselViewController: PageboyViewController {
 
 ## 📝 회고
 <!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
-프로젝트를 마무리하면서 몇 가지 느낀 점과 개선할 사항들을 회고로 정리하겠습니다.
-
 👍 **성취한 점**
 1. `Compositional Layout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
-2. `Diffable DataSource`를 적용하여 index error
-3. 섹션과 아이템을 식별자를
-
-<!--
-CRUD 기능별 Service protocol 정의, 필요에 따라 채택하여 usecase 사용
-RXSwift와 Input/Output 패턴으로 코드의 가독성 향상, 비동기 데이터 처리
--->
-
-🤔 **개선할 점**
-
+2. `Diffable DataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리할 수 있었습니다.
+3. `MVP 패턴`을 도입하여 view와 presenter 간에 코드 분리를 경험했고 presenter와 protocol을 이용해서 Unit Test를 편리하게 할 수 있었습니다.
+4. `BDD` 기반의 `Unit Test`를 경험해 보았습니다.
 
 ## 🖼 아이콘 출처 및 저작권 정보
 
