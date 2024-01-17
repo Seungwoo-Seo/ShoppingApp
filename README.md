@@ -38,8 +38,10 @@
 ## 🛠 구현 기술
 
 - offset 기반의 페이지네이션 구현
+<!--
 - Pageboy 라이브러리 기반 Auto Scroll 구현
 - Pageboy 라이브러리 기반 Infinite Carousel Effect 구현
+-->
 - Diffable DataSource를 활용해 Expandable Cell 구현
 
 ## 💻 기술 스택
