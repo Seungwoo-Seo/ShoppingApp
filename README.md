@@ -37,9 +37,9 @@
 ## 🛠 구현 기술
 
 - `offset` 기반의 `페이지네이션` 구현
-- `UserDefaults`를 활용해 `최근 검색어 CRUD` 구현
+- `UserDefaults`를 활용해 `최근 검색어 CRUD`와 `최근 본 상품 CRUD` 구현
 - `FirebaseRealtimeDatabase`를 활용해 `인기 검색어` 구현
-- `FirebaseRealtimeDatabase`를 활용해 `찜 CRUD`와 `최근 본 상품 CRUD` 구현
+- `FirebaseRealtimeDatabase`를 활용해 `찜 CRUD` 구현
 - `DiffableDataSource`를 활용해 `Expandable Cell` 구현
 
 ## 💻 기술 스택
@@ -60,9 +60,9 @@
 ## 🚧 기술적 도전
 
 <!-- 프로젝트를 진행하면서 겪은 기술적인 도전과 어떻게 해결했는지에 대한 설명을 추가한다. -->
-### 1. Compositional Layout
+### 1. CompositionalLayout
 - **도전 상황**</br>
-다양한 레이아웃을 가진 복잡한 화면을 구성하고 싶었습니다. TableView + CollectionView의 조합으로 구성하는데 코드도 굉장히 복잡해지고 핸들링하는데 어려움을 느꼈습니다. 그래서 `Compositional Layout`을 도입해봤습니다.
+다양한 레이아웃을 가진 복잡한 화면을 구성하고 싶었습니다. TableView + CollectionView의 조합으로 구성하는데 코드도 굉장히 복잡해지고 핸들링하는데 어려움을 느꼈습니다. 그래서 `CompositionalLayout`을 도입해봤습니다.
 
 - **도전 결과**</br>
 단일 collectionView만으로 다양하고 복잡한 레이아웃을 상당히 직관적으로 계층을 그릴 수 있었습니다. 각각의 레이아웃 요소들을 모듈화 할 수 있었기에 레이아웃이 복잡해지더라도 가독성이 향상되어 유지보수가 쉬워졌습니다.
@@ -143,7 +143,7 @@ private extension HomeCollectionViewLayout {
 }
 ~~~
 
-### 2. Diffable DataSource를 활용해 Expandable Cell 구현
+### 2. DiffableDataSource를 활용해 Expandable Cell 구현
 
 - **도전 상황**</br>
 `Expandable Cell`을 구현하고 싶었습니다.
@@ -273,8 +273,8 @@ final class InfinityCarouselViewController: PageboyViewController {
 ## 📝 회고
 <!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
 👍 **성취한 점**
-1. `Compositional Layout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
-2. `Diffable DataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리할 수 있었습니다.
+1. `CompositionalLayout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
+2. `DiffableDataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리할 수 있었습니다.
 3. `MVP 패턴`을 도입하여 view와 presenter 간에 코드 분리를 경험했고 presenter와 protocol을 이용해서 `Unit Test`를 편리하게 할 수 있었습니다.
 4. `BDD` 기반의 `Unit Test`를 경험해 보았습니다.
 
