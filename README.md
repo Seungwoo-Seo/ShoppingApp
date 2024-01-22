@@ -32,22 +32,25 @@
 - 카테고리 및 스타일 추천
 - 찜 목록 및 최근 본 상품
 - 회원인증 및 소셜로그인
-- Auto Scroll
+- 웹 사이트 이동
 
 ## 🛠 구현 기술
 
 - `offset` 기반의 `페이지네이션` 구현
-- `UserDefaults`를 활용해 `최근 검색어 CRUD`와 `최근 본 상품 CRUD` 구현
-- `FirebaseRealtimeDatabase`를 활용해 `인기 검색어` 구현
-- `FirebaseRealtimeDatabase`를 활용해 `찜 CRUD` 구현
 - `DiffableDataSource`를 활용해 `Expandable Cell` 구현
+- `OAuth 2.0` 기반 `이메일 로그인`, `소셜 로그인` 구현
+- `UserDefaults`를 활용해 `최근 검색어 CRUD` 구현
+- `Firebase`를 활용해 `찜`, `최근 본 상품 CRUD` 구현
+- `WKWebView` 구현
+- Pageboy 라이브러리 기반 Auto Scroll, Infinite Carousel 구현
 
 ## 💻 기술 스택
 
 - `Swift`
 - `MVP`, `Singleton`
 - `UIKit`, `WebKit`
-- `Codable`, `CodeBase UI`, `AutoLayout`, `CompositionalLayout`, `DiffableDataSource`
+- `CodeBase UI`, `AutoLayout`
+- `Codable`, `CompositionalLayout`, `DiffableDataSource`
 - `Alamofire`, `SnapKit`, `Kingfisher`, `Tabman`, `TTGTagCollectionView`, `Toast`
 - `Firebase`
 
