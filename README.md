@@ -275,11 +275,10 @@ final class InfinityCarouselViewController: PageboyViewController {
 
 ## 📝 회고
 <!-- 프로젝트를 마무리하면서 느낀 소회, 개선점, 다음에 시도해보고 싶은 것 등을 정리한다. -->
-👍 **성취한 점**
-1. `CompositionalLayout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
-2. `DiffableDataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리할 수 있었습니다.
-3. `MVP 패턴`을 도입하여 view와 presenter 간에 코드 분리를 경험했고 presenter와 protocol을 이용해서 `Unit Test`를 편리하게 할 수 있었습니다.
-4. `BDD` 기반의 `Unit Test`를 경험해 보았습니다.
+- `CompositionalLayout`를 적용하여 복잡하고 다양한 뷰를 직관적으로 구성할 수 있었습니다. 레이아웃 요소들을 모듈화하여 가독성 및 유지보수성을 향상시킬 수 있었습니다.
+- `DiffableDataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리할 수 있었습니다.
+- `MVP 패턴`을 도입하여 view와 presenter 간에 코드 분리를 경험했고 presenter와 protocol을 이용해서 `Unit Test`를 편리하게 할 수 있었습니다.
+- `BDD` 기반의 `Unit Test`를 경험해 보았습니다.
 
 ## 🖼 아이콘 출처 및 저작권 정보
 
