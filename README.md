@@ -38,14 +38,14 @@
 
 ## 💻 핵심 설명
 
-- Firebase Auth, Firebase FireStore 를 활용해 OAuth 2.0 기반 이메일 회원인증/소셜 로그인(구글, 애플) 구현
-- 애플 로그인 구현 시, Firebase 무결성 검사를 위해 CryptoKit 기반 nonce 생성 로직 추가
-- Alamofire 를 사용한 REST API 통신 구현
-- offset 기반 페이지네이션 을 통해 상품 정보 표현
-- UserDefaults 를 활용해 최근 검색어 CRUD 구현, Firebase RealtimeDatabase 를 활용해 찜/최근 본 상품 CRUD 구현
-- CompositionalLayout 을 활용해 그리드, 리스트 레이아웃 구현
-- DiffableDataSource + Notification 을 통한 Expandable Section 구현
-- BDD 기반의 Unit Test 구현
+- Firebase Auth, Firebase FireStore를 활용해 OAuth 2.0 기반 `이메일 회원인증/소셜 로그인(구글, 애플)` 구현
+- 애플 로그인 구현 시, Firebase 무결성 검사를 위해 CryptoKit 기반 `nonce 생성 로직` 추가
+- Alamofire를 사용한 `REST API 통신` 구현
+- offset 기반 `페이지 네이션`을 통해 상품 정보 표현
+- UserDefaults를 활용해 `최근 검색어 CRUD` 구현, Firebase RealtimeDatabase를 활용해 `찜/최근 본 상품 CRUD` 구현
+- CompositionalLayout을 활용해 `그리드, 리스트` 레이아웃 구현
+- DiffableDataSource + Notification을 통한 `Expandable Section` 구현
+- BDD 기반의 `Unit Test` 구현
 
 ## 🚧 기술적 도전
 
