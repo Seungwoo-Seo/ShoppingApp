@@ -30,7 +30,7 @@
 ## 🛠 사용 기술
 
 - Swift
-- Foundation, UIKit, WebKit, CryptoKit, Authentication Services
+- UIKit, WebKit, CryptoKit, Authentication Services
 - MVP, Singleton, Delegate Pattern
 - Alamofire, SnapKit, Kingfisher, Tabman, TTGTagCollectionView, Toast
 - CodeBase UI, AutoLayout, CompositionalLayout, DiffableDataSource, UserDefaults, Codable, 
@@ -231,8 +231,10 @@ thumnailImageView.snp.makeConstraints { make in
 }
 ~~~
 
+<!--
 ## 📝 회고
 - `CompositionalLayout`를 적용하여 레이아웃 요소들의 모듈화, 가독성 및 유지보수성 향상을 경험
 - `DiffableDataSource`를 적용하여 indexPath를 신경쓰지 않고 식별자를 통해 추가, 삭제, 이동 등의 변경사항에 대한 애니메이션을 처리를 경험
 - `MVP 패턴`을 도입하여 view와 presenter 간에 코드 분리, presenter와 protocol을 이용해서 편리한 `Unit Test`를 경험
 - `BDD` 기반의 `Unit Test`를 경험
+-->
